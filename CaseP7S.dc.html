@@ -42,6 +42,18 @@ a:not(.proj-card):not(.nav-icon):hover{background-image:linear-gradient(100deg,#
 #skeleton{transition:opacity .45s ease}
 #skeleton[hidden]{display:none}
 @media (prefers-reduced-motion:reduce){.sk{animation:none}}
+
+@media (max-width:760px){
+  nav{gap:10px!important;row-gap:6px!important;padding:12px 18px!important;flex-wrap:wrap!important}
+  nav>a{font-size:16px!important}
+  nav>div{gap:14px!important;font-size:14px!important}
+  nav>div:last-child{margin-left:8px!important}
+  .nav-icon{min-width:34px;min-height:34px;align-items:center;justify-content:center}
+  .tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-right:-24px;padding-right:24px}
+  .table{font-size:13px!important}
+  .table th,.table td{padding-right:20px!important}
+  blockquote{font-size:20px!important;max-width:none!important}
+}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -159,7 +171,7 @@ a:not(.proj-card):not(.nav-icon):hover{background-image:linear-gradient(100deg,#
   <section data-reveal="" id="decisoes" style="padding:0 0 56px">
     <span style="display:block;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:color-mix(in srgb, #201e1d 55%, transparent);margin-bottom:14px">Decisões</span>
     <h2 style="font-size:clamp(28px,3.6vw,42px);line-height:1.1;letter-spacing:-0.015em;font-weight:600;margin:0 0 24px">Por que a ferramenta ficou assim</h2>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
       <div class="card elev-sm">
         <span class="card-kicker">Estrutura</span>
         <h3 class="card-title">Espelhar as 5 etapas reais</h3>
@@ -181,7 +193,7 @@ a:not(.proj-card):not(.nav-icon):hover{background-image:linear-gradient(100deg,#
   <section data-reveal="" id="solucao" style="padding:0 0 56px">
     <span style="display:block;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:color-mix(in srgb, #201e1d 55%, transparent);margin-bottom:14px">Solução</span>
     <h2 style="font-size:clamp(28px,3.6vw,42px);line-height:1.1;letter-spacing:-0.015em;font-weight:600;margin:0 0 24px">Cinco etapas, uma ferramenta</h2>
-    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;font-family:'Inter',system-ui,sans-serif">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:16px;font-family:'Inter',system-ui,sans-serif">
       <div>
         <span class="tag tag-accent" style="margin-bottom:8px">01</span>
         <h4 class="inter-text" style="font-size:16px;margin:0 0 6px">Tipos de Documento</h4>
@@ -283,6 +295,7 @@ a:not(.proj-card):not(.nav-icon):hover{background-image:linear-gradient(100deg,#
       <div style="font-family:'Poppins',system-ui,sans-serif;font-weight:700;font-size:32px;letter-spacing:-0.01em;color:#006786">até 2 horas</div>
     </div>
     <p style="font-size:17.5px;line-height:1.65;max-width:68ch;margin:0 0 24px;color:color-mix(in srgb, #201e1d 82%, transparent)">Além do ganho de tempo, a última conciliação identificou 2 operações para cobrança: cedentes específicos dos Fundos A e B com entregas inteiras faltando, já comunicadas ao fornecedor responsável.</p>
+    <div class="tbl-scroll">
     <table class="table" style="max-width:640px;width:100%;border-collapse:separate;border-spacing:0">
       <thead><tr><th>Fundo</th><th>Total</th><th>Na pasta</th><th>Faltando</th><th>Status</th></tr></thead>
       <tbody>
@@ -292,6 +305,7 @@ a:not(.proj-card):not(.nav-icon):hover{background-image:linear-gradient(100deg,#
         <tr><td>Fundo D</td><td>63</td><td>14</td><td>49</td><td><span class="tag tag-neutral">Download pendente</span></td></tr>
       </tbody>
     </table>
+    </div>
   </section>
 
   <section data-reveal="" id="aprendizados" style="padding: 0 0 64px; background-color: #FFF8F4; border-radius: 10px; opacity: 1; padding-top: 24px; padding-right: 24px; padding-bottom: 24px; padding-left: 24px">
