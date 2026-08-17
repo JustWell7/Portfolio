@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orbi Service Desk — protótipo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pageBg:#f8fafc;--surface:#ffffff;--surfaceAlt:#f8fafc;
+  --primary:#1E4A2D;--primaryBright:#2a6040;--primaryDark:#133A25;--primaryLight:#D0E8D8;--primarySubtle:#A8C5B0;
+  --text:#1e2939;--textMid:#364153;--textSub:#4a5565;--textMuted:#99a1af;--textOnPrimary:#ffffff;
+  --border:#f3f4f6;--borderMid:#e5e7eb;--connector:#CBD5E1;--divider:#D1D5DC;
+  --green:#009966;--greenLight:#ecfdf5;--red:#dc2626;--redLight:#fef2f2;--amber:#d97706;--amberLight:#fffbeb;
+  --purple:#7F22FE;--purpleLight:#f5f3ff;--indigo:#4F39F6;--indigoLight:#eef2ff;--cyan:#0092B8;--cyanLight:#ecfeff;
+  --slateIcon:#45556C;--slateBg:#f8fafc;--white:#ffffff;--hover:#edf1f7;
+}
+body.dark{
+  --pageBg:#0d1117;--surface:#161b25;--surfaceAlt:#0d1117;
+  --primary:#3eaa5f;--primaryBright:#4ec870;--primaryDark:#2a7a42;--primaryLight:#12281a;--primarySubtle:#182d20;
+  --text:#e2e8f0;--textMid:#b0bcc8;--textSub:#7a8898;--textMuted:#4e5a6a;--textOnPrimary:#ffffff;
+  --border:#1e2535;--borderMid:#252d3d;--connector:#2a3248;--divider:#252d3d;
+  --green:#34d399;--greenLight:#0a2218;--red:#f87171;--redLight:#2d1010;--amber:#fbbf24;--amberLight:#2d2008;
+  --purple:#a78bfa;--purpleLight:#1e1630;--indigo:#818cf8;--indigoLight:#181d35;--cyan:#22d3ee;--cyanLight:#0a2030;
+  --slateIcon:#7a8898;--slateBg:#1a2030;--white:#161b25;--hover:#1c2535;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--pageBg);color:var(--text);height:100vh;overflow:hidden;transition:background .2s,color .2s}
+svg{flex-shrink:0}
+.app{display:flex;height:100vh;width:100%}
+.sidebar{width:184px;flex-shrink:0;background:var(--white);border-right:1px solid var(--border);display:flex;flex-direction:column;height:100%}
+.logo{padding:16px;display:flex;gap:12px;align-items:center;border-bottom:1px solid var(--border)}
+.logo-icon{width:36px;height:36px;border-radius:10px;background:var(--primaryLight);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--primary)}
+.newticket{padding:12px}
+.newticket button{width:100%;padding:10px 0;border-radius:12px;border:none;background:var(--primary);color:var(--textOnPrimary);font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .2s ease}
+.newticket button:hover{background:var(--primaryDark)}
+nav{display:flex;flex-direction:column;gap:2px;padding:0 8px;flex:1}
+.navitem{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;cursor:pointer;font-size:12px;color:var(--textMid);border:none;background:transparent;width:100%;text-align:left;font-family:inherit;line-height:1.35;transition:background .2s ease}
+.navitem:hover{background:var(--hover)}
+.navitem.active{background:var(--primaryLight);color:var(--primary);font-weight:600}
+.navitem .ico{color:var(--textSub);display:flex}
+.navitem.active .ico{color:var(--primary)}
+.navitem .badge{margin-left:auto;min-width:18px;width:18px;height:18px;border-radius:9999px;background:var(--red);color:var(--white);font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.navitem[data-id="kanban"] .badge{background:var(--amber)}
+.userbar{border-top:1px solid var(--border);padding:12px 12px 16px;display:flex;flex-direction:column;gap:4px}
+.userrow{display:flex;gap:8px;align-items:center;padding:8px;border-radius:10px}
+.avatar-round{width:30px;height:30px;border-radius:9999px;background:var(--primaryLight);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
+.footitem{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;border:none;background:transparent;cursor:pointer;font-family:inherit;font-size:11px;color:var(--textMuted);width:100%;text-align:left;transition:background .2s ease}
+.footitem:hover{background:var(--hover)}
+main{flex:1;overflow:hidden;display:flex;flex-direction:column;background:var(--pageBg)}
+.topbar{background:var(--white);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;gap:16px}
+.topbar h1{font-size:18px;font-weight:600;color:var(--text)}
+.topbar p{font-size:11px;color:var(--textMuted)}
+.search{display:flex;align-items:center;gap:8px;background:var(--pageBg);border:1px solid var(--border);border-radius:10px;padding:8px 12px;font-size:12px;color:var(--textMuted);min-width:230px}
+.stats{background:var(--white);border-bottom:1px solid var(--border);padding:10px 24px;display:flex;gap:20px;align-items:center;flex-shrink:0}
+.stat{font-size:11px;color:var(--textMuted);display:flex;gap:6px;align-items:center}
+.stat b{font-size:13px;font-weight:700}
+.filters{margin-left:auto;display:flex;gap:8px;align-items:center}
+.select{display:flex;align-items:center;gap:20px;border:1px solid var(--border);border-radius:8px;padding:4px 8px;font-size:11px;color:var(--textMid);background:var(--white);cursor:pointer}
+.content{padding:16px 24px;flex:1;overflow:auto}
+.tablewrap{border-radius:14px;overflow-x:auto;overflow-y:hidden;background:var(--white);border:1px solid var(--border);box-shadow:0px 1px 3px rgba(0,0,0,0.06)}
+table{width:100%;min-width:max-content;border-collapse:collapse}
+thead tr{background:var(--pageBg);border-bottom:1px solid var(--border)}
+th{text-align:left;padding:12px;font-size:10px;font-weight:600;color:var(--textMuted);text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+tbody tr{cursor:pointer;transition:background .1s ease}
+tbody tr+tr{border-top:1px solid var(--border)}
+tbody tr:hover{background:var(--hover)}
+td{padding:12px;font-size:12px;white-space:nowrap;color:var(--text)}
+.row{display:flex;align-items:center;gap:6px}
+.mini-av{width:22px;height:22px;border-radius:9999px;background:var(--primaryLight);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;flex-shrink:0}
+.badgetext{display:flex;align-items:center;gap:4px;white-space:nowrap;font-size:11px;font-weight:500}
+.sla{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:500}
+.sla i{width:6px;height:6px;border-radius:9999px;flex-shrink:0}
+.kanban-head{background:var(--white);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.kanban-board{display:flex;gap:16px;padding:20px 24px;overflow:auto;flex:1;align-items:flex-start}
+.col{width:280px;flex-shrink:0}
+.col-head{display:flex;align-items:center;gap:8px;margin-bottom:12px;padding:0 2px}
+.col-dot{width:7px;height:7px;border-radius:9999px}
+.col-count{margin-left:auto;width:18px;height:18px;border-radius:9999px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700}
+.col-body{background:var(--pageBg);border-radius:14px;padding:8px;display:flex;flex-direction:column;gap:10px;min-height:80px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0px 1px 3px rgba(0,0,0,0.06);transition:box-shadow .2s ease,transform .2s ease}
+.card.click{cursor:pointer}
+.card.click:hover{box-shadow:0px 8px 20px rgba(0,0,0,0.12);transform:translateY(-2px)}
+.card-meta{font-size:10px;color:var(--textMuted);display:flex;align-items:center;gap:5px}
+.view{display:none;flex-direction:column;height:100%;overflow:hidden}
+.view.active{display:flex}
+.pill{display:inline-flex;align-items:center;font-size:9px;font-weight:600;padding:2px 7px;border-radius:9999px;white-space:nowrap}
+.dslabel{font-size:9px;font-weight:600;letter-spacing:.4px;color:var(--textMuted);text-transform:uppercase;margin-bottom:8px}
+.dssection{font-size:15px;font-weight:600;color:var(--text);margin:0 0 16px}
+.btn{font-family:inherit;border:none;cursor:pointer;font-weight:600;border-radius:10px;padding:8px 16px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="logo">
+      <div class="logo-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:600;line-height:1.2;color:var(--text)">Service Desk</div>
+        <div style="font-size:10px;color:var(--textMuted)">Omnichannel</div>
+      </div>
+    </div>
+    <div class="newticket"><button onclick="alert('Novo Chamado')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Novo Chamado</button></div>
+    <nav>
+      <button class="navitem active" data-id="fila" onclick="showView('fila')"><span class="ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></span>Fila de Chamados<span class="badge">6</span></button>
+      <button class="navitem" data-id="kanban" onclick="showView('kanban')"><span class="ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v11M12 3v18M19 3v7"/></svg></span>Escalonados para Mim<span class="badge">3</span></button>
+      <button class="navitem" data-id="canais" onclick="showView('canais')"><span class="ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 19.1A10 10 0 0 1 4.9 4.9M7.8 16.2a6 6 0 0 1 0-8.4M16.2 7.8a6 6 0 0 1 0 8.4M19.1 4.9a10 10 0 0 1 0 14.2"/><circle cx="12" cy="12" r="2"/></svg></span>Canais</button>
+      <button class="navitem" data-id="relatorios" onclick="showView('relatorios')"><span class="ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></span>Relatórios</button>
+      <button class="navitem" data-id="configuracoes" onclick="showView('configuracoes')"><span class="ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>Design System</button>
+    </nav>
+    <div class="userbar">
+      <div class="userrow">
+        <div class="avatar-round">TI</div>
+        <div style="min-width:0">
+          <div style="font-size:11px;font-weight:600;color:var(--text)">TI</div>
+          <div style="font-size:9px;color:var(--textMuted)">Orbi Service Desk</div>
+        </div>
+      </div>
+      <button class="footitem" onclick="toggleDark()"><span id="darkicon" style="display:flex;color:var(--textMuted)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg></span><span id="darklabel">Modo escuro</span></button>
+      <button class="footitem"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>Sair</button>
+    </div>
+  </aside>
+
+  <main>
+    <div class="view active" id="view-fila">
+      <div class="topbar">
+        <div><h1>Fila de Chamados</h1><p>6 chamados</p></div>
+        <div class="search"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>Buscar chamados...</div>
+      </div>
+      <div class="stats">
+        <div class="stat">Total: <b style="color:var(--textSub)">6</b></div>
+        <div class="stat">Abertos: <b style="color:var(--primary)">2</b></div>
+        <div class="stat">Em Andamento: <b style="color:var(--amber)">2</b></div>
+        <div class="stat">SLA Vencido: <b style="color:var(--red)">1</b></div>
+        <div class="filters">
+          <span style="color:var(--textMuted);display:flex"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 4H14M10 4H3M21 12h-9M8 12H3M21 20h-5M12 20H3M14 2v4M8 10v4M16 18v4"/></svg></span>
+          <div class="select">Canal <span>⌄</span></div>
+          <div class="select">Status <span>⌄</span></div>
+          <div class="select">Prioridade <span>⌄</span></div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>ID</th><th>Cliente</th><th>Assunto</th><th>Prioridade</th><th>Status</th><th>SLA</th><th>Agente</th></tr></thead>
+            <tbody id="fila-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="view" id="view-kanban">
+      <div class="kanban-head">
+        <div><h1 style="font-size:18px;font-weight:600">Chamados Escalonados para Mim</h1><p style="font-size:11px;color:var(--textMuted)">Clique no card para ver detalhes</p></div>
+        <div style="display:flex;align-items:center;gap:6px;background:var(--redLight);border:1px solid var(--red);border-radius:8px;padding:6px 12px;font-size:11px;font-weight:600;color:var(--red)">1 SLA vencido</div>
+      </div>
+      <div class="kanban-board" id="kanban-board"></div>
+    </div>
+
+    <div class="view" id="view-canais">
+      <div class="topbar"><div><h1>Canais</h1><p>Integrações e volume por canal de entrada</p></div></div>
+      <div class="content" id="canais-body"></div>
+    </div>
+
+    <div class="view" id="view-relatorios">
+      <div class="topbar"><div><h1>Relatórios</h1><p>Visão consolidada de volume, SLA e canais</p></div></div>
+      <div class="content" id="relatorios-body"></div>
+    </div>
+
+    <div class="view" id="view-configuracoes">
+      <div class="topbar"><div><h1>Design System - Orbi Service Desk</h1><p>Tokens, componentes e padrões de interação padronizados</p></div></div>
+      <div class="content" id="ds-body"></div>
+    </div>
+  </main>
+</div>
+
+<script>
+const svg = (d, size, color, extra) => `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ${extra||''}>${d}</svg>`;
+const P = {
+  mail:'<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>',
+  message:'<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/>',
+  users:'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+  circle:'<circle cx="12" cy="12" r="10"/>',
+  refresh:'<path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8M3 3v5h5M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16M16 16h5v5"/>',
+  pause:'<circle cx="12" cy="12" r="10"/><path d="M10 15V9M14 15V9"/>',
+  check:'<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
+  clock:'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+};
+const cssv = n => getComputedStyle(document.body).getPropertyValue('--'+n).trim();
+const chanColor = { whatsapp:'#25D366', email:'var(--primary)', interno:'var(--textSub)' };
+const chanIcon = c => svg(c==='whatsapp'?P.message:c==='email'?P.mail:P.users, 13, chanColor[c]);
+
+const priorityCfg = { urgente:{label:"Urgente",c:"var(--red)"}, alta:{label:"Alta",c:"var(--amber)"}, "média":{label:"Média",c:"var(--primary)"}, baixa:{label:"Baixa",c:"var(--green)"} };
+const statusCfg = {
+  "aberto":{label:"Aberto",c:"var(--primary)",p:P.circle},
+  "em andamento":{label:"Em Andamento",c:"var(--amber)",p:P.refresh},
+  "aguardando cliente":{label:"Aguard. Cliente",c:"var(--textSub)",p:P.pause},
+  "fechado":{label:"Fechado",c:"var(--green)",p:P.check},
+};
+const priorityBadge = p => `<span class="badgetext" style="color:${priorityCfg[p].c}">${priorityCfg[p].label}${p==='urgente'?'<b>!</b>':''}</span>`;
+const statusBadge = s => `<span class="badgetext" style="color:${statusCfg[s].c}">${svg(statusCfg[s].p,11,statusCfg[s].c)}${statusCfg[s].label}</span>`;
+const fmtSLA = m => m<0 ? `+${Math.abs(m)}min vencido` : (Math.floor(m/60)===0 ? `${m}min` : `${Math.floor(m/60)}h ${m%60}m`);
+const slaColor = m => m<0?'var(--red)':m<60?'var(--amber)':'var(--green)';
+const slaDot = m => `<span class="sla" style="color:${slaColor(m)}"><i style="background:${slaColor(m)}"></i>${fmtSLA(m)}</span>`;
+
+const tickets = [
+  {id:"SAR-2501",channel:"whatsapp",client:"Ana Rodrigues",avatar:"AR",subject:"Contestação de lançamento em conta corrente",priority:"alta",status:"em andamento",sla:87,agent:"Carlos Mendes",agentAv:"CM",area:"Financeiro"},
+  {id:"SAR-2502",channel:"email",client:"Roberto Lima",avatar:"RL",subject:"Solicitação de acesso ao sistema de folha de pagamento",priority:"média",status:"aberto",sla:340,agent:"Patrícia Souza",agentAv:"PS",area:"TI"},
+  {id:"SAR-2503",channel:"interno",client:"Fernanda Costa",avatar:"FC",subject:"Notebook com tela piscando - inviabilizando trabalho",priority:"urgente",status:"aberto",sla:-23,agent:"Marcos Oliveira",agentAv:"MO",area:"TI"},
+  {id:"SAR-2504",channel:"whatsapp",client:"Diego Ferreira",avatar:"DF",subject:"Alteração de dados cadastrais - atualização de endereço",priority:"baixa",status:"fechado",sla:720,agent:"Julia Alves",agentAv:"JA",area:"Operações"},
+  {id:"SAR-2505",channel:"email",client:"Marcela Teixeira",avatar:"MT",subject:"Dúvida sobre rendimentos de investimento CDB",priority:"baixa",status:"aguardando cliente",sla:180,agent:"Carlos Mendes",agentAv:"CM",area:"Financeiro"},
+  {id:"SAR-2506",channel:"interno",client:"Paulo Nascimento",avatar:"PN",subject:"Solicitação de férias - aprovação RH",priority:"média",status:"em andamento",sla:220,agent:"Julia Alves",agentAv:"JA",area:"RH"},
+];
+
+function renderQueue(){
+  document.getElementById('fila-body').innerHTML = tickets.map(t => `
+    <tr>
+      <td><span class="row">${chanIcon(t.channel)}<span style="font-size:11px;font-weight:600;color:var(--primary)">${t.id}</span></span></td>
+      <td><span class="row"><span class="mini-av">${t.avatar}</span><span style="font-size:11px;color:var(--textMid)">${t.client.split(' ')[0]}</span></span></td>
+      <td><span style="font-size:12px;color:var(--text);display:block;max-width:220px;overflow:hidden;text-overflow:ellipsis">${t.subject}</span></td>
+      <td>${priorityBadge(t.priority)}</td>
+      <td>${statusBadge(t.status)}</td>
+      <td>${slaDot(t.sla)}</td>
+      <td><span class="row"><span class="mini-av" style="background:var(--slateBg);color:var(--textSub)">${t.agentAv}</span><span style="font-size:11px;color:var(--textSub)">${t.agent.split(' ')[0]}</span></span></td>
+    </tr>`).join('');
+}
+
+const kanbanTickets = [
+  {id:"SAR-2501",channel:"whatsapp",client:"Ana Rodrigues",avatar:"AR",subject:"Contestação de lançamento em conta corrente",priority:"alta",area:"Financeiro",sla:87,status:"aberto"},
+  {id:"SAR-2503",channel:"interno",client:"Fernanda Costa",avatar:"FC",subject:"Notebook com tela piscando",priority:"urgente",area:"TI",sla:-23,status:"aberto"},
+  {id:"SAR-2507",channel:"email",client:"Beatriz Nunes",avatar:"BN",subject:"Erro no relatório de conciliação bancária",priority:"urgente",area:"Financeiro",sla:34,status:"aberto"},
+  {id:"SAR-2509",channel:"whatsapp",client:"Rodrigo Martins",avatar:"RM",subject:"Solicitação de liberação de acesso VPN",priority:"média",area:"TI",sla:210,status:"aberto"},
+  {id:"SAR-2502",channel:"email",client:"Roberto Lima",avatar:"RL",subject:"Acesso ao sistema de folha - novo colaborador",priority:"média",area:"TI",sla:340,status:"em_andamento"},
+  {id:"SAR-2510",channel:"interno",client:"Lucas Carvalho",avatar:"LC",subject:"Revisão de contrato de fornecedor",priority:"alta",area:"Jurídico",sla:55,status:"em_andamento"},
+  {id:"SAR-2511",channel:"email",client:"Camila Torres",avatar:"CT",subject:"Configuração de regras de firewall",priority:"alta",area:"TI",sla:130,status:"em_andamento"},
+  {id:"SAR-2504",channel:"whatsapp",client:"Diego Ferreira",avatar:"DF",subject:"Alteração de dados cadastrais",priority:"baixa",area:"Operações",sla:720,status:"fechado"},
+  {id:"SAR-2508",channel:"interno",client:"Thiago Ramos",avatar:"TR",subject:"Reset de senha do Active Directory",priority:"média",area:"TI",sla:480,status:"fechado"},
+];
+const columns = [
+  {id:"aberto",label:"Abertos",accent:"var(--primary)",bg:"var(--primaryLight)"},
+  {id:"em_andamento",label:"Em Andamento",accent:"var(--amber)",bg:"var(--amberLight)"},
+  {id:"fechado",label:"Fechados",accent:"var(--green)",bg:"var(--greenLight)"},
+];
+function renderKanban(){
+  document.getElementById('kanban-board').innerHTML = columns.map(col => {
+    const items = kanbanTickets.filter(t => t.status === col.id);
+    return `<div class="col">
+      <div class="col-head">
+        <span class="col-dot" style="background:${col.accent}"></span>
+        <span style="font-size:12px;font-weight:600">${col.label}</span>
+        <span class="col-count" style="background:${col.bg};color:${col.accent}">${items.length}</span>
+      </div>
+      <div class="col-body">
+        ${items.map(t => `
+          <div class="card click" style="padding:14px;border-radius:12px">
+            <div class="row">
+              ${chanIcon(t.channel)}
+              <span style="font-size:10px;font-weight:600;color:var(--primary)">${t.id}</span>
+              <span style="margin-left:auto">${priorityBadge(t.priority)}</span>
+            </div>
+            <div style="font-size:12px;font-weight:500;line-height:1.4">${t.subject}</div>
+            <div class="card-meta"><span class="mini-av" style="width:18px;height:18px;font-size:8px">${t.avatar}</span>${t.client} · ${t.area}</div>
+            <div>${slaDot(t.sla)}</div>
+          </div>`).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+const channelVolume = [
+  {id:"whatsapp",label:"WhatsApp",desc:"Chat integrado via API oficial"},
+  {id:"email",label:"E-mail",desc:"Caixa de entrada compartilhada"},
+  {id:"interno",label:"Interno",desc:"Solicitações entre colaboradores"},
+].map(c => ({...c, count: tickets.filter(t=>t.channel===c.id).length}));
+
+function renderCanais(){
+  document.getElementById('canais-body').innerHTML = `
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+      ${channelVolume.map(c => `
+        <div class="card">
+          <div class="row">${chanIcon(c.id)}<span style="font-size:13px;font-weight:600;margin-left:4px">${c.label}</span>
+          <span class="pill" style="margin-left:auto;background:var(--primaryLight);color:var(--primary)">${c.count} chamados</span></div>
+          <div class="card-meta">${c.desc}</div>
+        </div>`).join('')}
+    </div>`;
+}
+
+function renderRelatorios(){
+  const counts = Object.keys(statusCfg).map(k => ({label:statusCfg[k].label,c:statusCfg[k].c,n:tickets.filter(t=>t.status===k).length}));
+  document.getElementById('relatorios-body').innerHTML = `
+    <div class="card" style="flex-direction:row;gap:24px;margin-bottom:16px">
+      ${counts.map(s => `<div class="stat">${s.label}: <b style="color:${s.c}">${s.n}</b></div>`).join('')}
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+      ${channelVolume.map(c => `
+        <div class="card">
+          <div class="row">${chanIcon(c.id)}<span style="font-size:13px;font-weight:600;margin-left:4px">${c.label}</span></div>
+          <div style="font-size:22px;font-weight:700;color:var(--primary)">${c.count}</div>
+          <div class="card-meta">chamados neste canal</div>
+        </div>`).join('')}
+    </div>`;
+}
+
+const lightColors = {pageBg:"#f8fafc",surface:"#ffffff",surfaceAlt:"#f8fafc",primary:"#1E4A2D",primaryBright:"#2a6040",primaryDark:"#133A25",primaryLight:"#D0E8D8",primarySubtle:"#A8C5B0",text:"#1e2939",textMid:"#364153",textSub:"#4a5565",textMuted:"#99a1af",textOnPrimary:"#ffffff",border:"#f3f4f6",borderMid:"#e5e7eb",connector:"#CBD5E1",divider:"#D1D5DC",green:"#009966",greenLight:"#ecfdf5",red:"#dc2626",redLight:"#fef2f2",amber:"#d97706",amberLight:"#fffbeb",purple:"#7F22FE",purpleLight:"#f5f3ff",indigo:"#4F39F6",indigoLight:"#eef2ff",cyan:"#0092B8",cyanLight:"#ecfeff",slateIcon:"#45556C",slateBg:"#f8fafc",white:"#ffffff",hover:"#edf1f7"};
+const darkColors = {pageBg:"#0d1117",surface:"#161b25",surfaceAlt:"#0d1117",primary:"#3eaa5f",primaryBright:"#4ec870",primaryDark:"#2a7a42",primaryLight:"#12281a",primarySubtle:"#182d20",text:"#e2e8f0",textMid:"#b0bcc8",textSub:"#7a8898",textMuted:"#4e5a6a",textOnPrimary:"#ffffff",border:"#1e2535",borderMid:"#252d3d",connector:"#2a3248",divider:"#252d3d",green:"#34d399",greenLight:"#0a2218",red:"#f87171",redLight:"#2d1010",amber:"#fbbf24",amberLight:"#2d2008",purple:"#a78bfa",purpleLight:"#1e1630",indigo:"#818cf8",indigoLight:"#181d35",cyan:"#22d3ee",cyanLight:"#0a2030",slateIcon:"#7a8898",slateBg:"#1a2030",white:"#161b25",hover:"#1c2535"};
+
+const swatchRow = (palette, label) => `
+  <div style="margin-bottom:18px">
+    <div style="font-size:11px;color:var(--textMuted);margin-bottom:10px">${label}</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      ${Object.entries(palette).map(([k,v])=>`
+        <div style="width:92px">
+          <div style="height:44px;border-radius:8px;background:${v};border:1px solid var(--borderMid)"></div>
+          <div style="font-size:9px;margin-top:5px;font-weight:600;color:var(--text)">C.${k}</div>
+          <div style="font-size:8px;color:var(--textMuted)">${v}</div>
+        </div>`).join('')}
+    </div>
+  </div>`;
+
+const tokenTable = (title, tokens) => `
+  <div style="margin-bottom:14px">
+    <div class="dslabel">${title}</div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap">
+      ${Object.entries(tokens).map(([k,v])=>`<span style="font-size:10px;color:var(--textSub)"><b style="color:var(--text)">${k}</b> ${v}</span>`).join('')}
+    </div>
+  </div>`;
+
+function renderDS(){
+  const typeScale = [
+    ["H1 - Cabeçalho Principal","28px · w700 · 'Inter', sans-serif",28,700],
+    ["XL - Título de Página","18px · w600 · 'Inter', sans-serif",18,600],
+    ["LG - Subtítulo","15px · w600 · 'Inter', sans-serif",15,600],
+    ["MD - Texto de Ênfase","13px · w500 · 'Inter', sans-serif",13,500],
+    ["Base - Corpo / Inputs","12px · w400 · 'Inter', sans-serif",12,400],
+    ["SM - Badges / Tabelas","11px · w400 · 'Inter', sans-serif",11,400],
+    ["XS - Labels / Metadados","9px · w600 · 'Inter', sans-serif",9,600],
+  ];
+  document.getElementById('ds-body').innerHTML = `
+    <h2 class="dssection">Paleta de Cores</h2>
+    ${swatchRow(lightColors,'Modo Claro (lightColors)')}
+    ${swatchRow(darkColors,'Modo Escuro (darkColors)')}
+
+    <h2 class="dssection" style="margin-top:32px">Tokens - Escala</h2>
+    <div class="card" style="margin-bottom:32px">
+      ${tokenTable('fontSize',{xs:"9px",sm:"11px",base:"12px",md:"13px",lg:"15px",xl:"18px",xxl:"22px",h1:"28px"})}
+      ${tokenTable('fontWeight',{regular:400,medium:500,semibold:600,bold:700})}
+      ${tokenTable('radius',{xs:"4px",sm:"6px",md:"8px",lg:"10px",xl:"12px",card:"14px",full:"9999px"})}
+      ${tokenTable('shadow',{sm:"0 1 3 rgba(0,0,0,.06)",md:"0 4 12 rgba(0,0,0,.10)",lg:"0 8 24 rgba(0,0,0,.14)",hover:"0 8 20 rgba(0,0,0,.12)"})}
+      ${tokenTable('transition',{fast:"0.1s ease",normal:"0.2s ease",smooth:"0.28s cubic-bezier(.22,1,.36,1)"})}
+    </div>
+
+    <h2 class="dssection">Tipografia</h2>
+    <div class="card" style="margin-bottom:32px;gap:0">
+      ${typeScale.map(([l,m,s,w],i)=>`
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:10px 0;${i<typeScale.length-1?'border-bottom:1px solid var(--border)':''}">
+          <span style="font-size:${s}px;font-weight:${w};color:var(--text)">${l}</span>
+          <span style="font-size:10px;color:var(--textMuted);white-space:nowrap">${m}</span>
+        </div>`).join('')}
+    </div>
+
+    <h2 class="dssection">Componente - Button</h2>
+    <div class="card" style="margin-bottom:32px;gap:16px">
+      <div><div class="dslabel">Variantes (size=md)</div><div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn" style="background:var(--primary);color:var(--textOnPrimary)">Primary</button>
+        <button class="btn" style="background:var(--white);color:var(--text);border:1px solid var(--borderMid)">Secondary</button>
+        <button class="btn" style="background:transparent;color:var(--textMid)">Ghost</button>
+        <button class="btn" style="background:var(--red);color:#fff">Danger</button>
+        <button class="btn" style="background:var(--green);color:#fff">Success</button>
+        <button class="btn" style="background:var(--amber);color:#fff">Warning</button>
+      </div></div>
+      <div><div class="dslabel">Com ícones</div><div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn" style="background:var(--primary);color:var(--textOnPrimary);font-size:11px;padding:7px 13px;display:flex;align-items:center;gap:6px">${svg('<path d="M12 5v14M5 12h14"/>',12,'currentColor')}Novo Chamado</button>
+        <button class="btn" style="background:var(--white);color:var(--text);border:1px solid var(--borderMid);font-size:11px;padding:7px 13px">Ver Detalhes ›</button>
+        <button class="btn" style="background:var(--white);color:var(--text);border:1px solid var(--borderMid);font-size:11px;padding:7px 13px">Exportar</button>
+        <button class="btn" style="background:var(--red);color:#fff;font-size:11px;padding:7px 13px">Excluir</button>
+      </div></div>
+      <div><div class="dslabel">Tamanhos</div><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <button class="btn" style="background:var(--primary);color:var(--textOnPrimary);font-size:11px;padding:6px 14px;border-radius:8px">Enviar (sm)</button>
+        <button class="btn" style="background:var(--primary);color:var(--textOnPrimary)">Enviar (md)</button>
+        <button class="btn" style="background:var(--primary);color:var(--textOnPrimary);font-size:15px;padding:12px 22px;border-radius:12px">Enviar (lg)</button>
+      </div></div>
+      <div><div class="dslabel">Estados</div><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <button class="btn" style="background:var(--primary);color:var(--textOnPrimary);opacity:.45" disabled>Carregando...</button>
+        <button class="btn" style="background:var(--white);color:var(--text);border:1px solid var(--borderMid);opacity:.45" disabled>Desabilitado</button>
+      </div></div>
+      <button class="btn" style="background:var(--primary);color:var(--textOnPrimary);width:100%">Largura Total</button>
+    </div>
+
+    <h2 class="dssection">Componente - Badge</h2>
+    <div class="card" style="margin-bottom:32px;gap:16px">
+      <div><div class="dslabel">PriorityBadge</div><div style="display:flex;gap:16px;flex-wrap:wrap">${Object.keys(priorityCfg).map(p=>priorityBadge(p)).join('')}</div></div>
+      <div><div class="dslabel">StatusBadge</div><div style="display:flex;gap:16px;flex-wrap:wrap">${Object.keys(statusCfg).map(s=>statusBadge(s)).join('')}</div></div>
+      <div><div class="dslabel">ChannelBadge</div><div style="display:flex;gap:16px;flex-wrap:wrap">
+        ${[['email','E-mail'],['whatsapp','WhatsApp'],['interno','Interno']].map(([k,l])=>`<span class="badgetext" style="color:${chanColor[k]}">${chanIcon(k)}${l}</span>`).join('')}
+      </div></div>
+      <div><div class="dslabel">Pill</div><div style="display:flex;gap:8px;flex-wrap:wrap">
+        <span class="pill" style="background:var(--greenLight);color:var(--green)">Financeiro</span>
+        <span class="pill" style="background:var(--redLight);color:var(--red)">Urgente</span>
+        <span class="pill" style="background:var(--amberLight);color:var(--amber)">Revisão</span>
+        <span class="pill" style="background:var(--primaryLight);color:var(--primary)">Concluído</span>
+        <span class="pill" style="background:var(--slateBg);color:var(--textSub)">TI</span>
+      </div></div>
+    </div>
+
+    <h2 class="dssection">Componente - Avatar</h2>
+    <div class="card" style="margin-bottom:32px;gap:16px">
+      <div style="display:flex;align-items:center;gap:20px">
+        <div class="mini-av">AR</div>
+        <div class="avatar-round" style="width:30px;height:30px">RL</div>
+        <div class="avatar-round" style="width:36px;height:36px;font-size:12px">AB</div>
+        <div class="avatar-round" style="width:44px;height:44px;font-size:14px;background:var(--primary);color:var(--textOnPrimary)">AB</div>
+      </div>
+      <div><div class="dslabel">Variantes de cor por iniciais</div><div style="display:flex;gap:8px">
+        ${['FN','AG','BU','DF','TI','CS'].map(i=>`<span class="mini-av" style="width:26px;height:26px">${i}</span>`).join('')}
+      </div></div>
+    </div>
+
+    <h2 class="dssection">Componente - SLAIndicator</h2>
+    <div class="card" style="margin-bottom:32px;gap:16px">
+      <div><div class="dslabel">mode="dot" (padrão - fila de chamados)</div><div style="display:flex;gap:20px;flex-wrap:wrap">${slaDot(87)}${slaDot(45)}${slaDot(-23)}</div></div>
+      <div><div class="dslabel">mode="text" com showIcon</div><div style="display:flex;gap:20px;flex-wrap:wrap">
+        ${[480,45,-23].map(m=>`<span class="badgetext" style="color:${slaColor(m)}">${svg(P.clock,11,slaColor(m))}${fmtSLA(m)}</span>`).join('')}
+      </div></div>
+      <div><div class="dslabel">mode="bar" (detalhe do ticket)</div>
+        ${[[400,'var(--green)','var(--greenLight)'],[45,'var(--amber)','var(--amberLight)'],[-23,'var(--red)','var(--redLight)']].map(([m,c,bg])=>`
+          <div style="min-width:90px;max-width:220px;margin-bottom:8px">
+            <div style="font-size:9px;font-weight:500;color:${c};margin-bottom:4px">${fmtSLA(m)}</div>
+            <div style="height:4px;border-radius:9999px;background:${bg};overflow:hidden"><div style="height:100%;width:${Math.max(0,Math.min(100,(m/480)*100))}%;background:${c};border-radius:9999px"></div></div>
+          </div>`).join('')}
+      </div>
+    </div>
+
+    <h2 class="dssection">Componente - ChannelIcon</h2>
+    <div class="card" style="margin-bottom:32px;flex-direction:row;gap:20px">
+      ${['email','whatsapp','interno'].map(k=>`<span style="display:flex;flex-direction:column;align-items:center;gap:6px">${chanIcon(k)}<span style="font-size:9px;color:var(--textMuted)">${k}</span></span>`).join('')}
+    </div>
+
+    <h2 class="dssection">Componente - Tag</h2>
+    <div class="card" style="margin-bottom:32px;flex-direction:row;gap:8px;flex-wrap:wrap">
+      ${[['bug','var(--primaryLight)','var(--primary)',0],['financeiro','var(--amberLight)','var(--amber)',0],['urgente','var(--redLight)','var(--red)',0],['resolvido','var(--greenLight)','var(--green)',1],['dev','var(--purpleLight)','var(--purple)',1]].map(([l,bg,c,x])=>`<span class="pill" style="background:${bg};color:${c};gap:4px">${l}${x?'<span style="opacity:.6;font-weight:700">×</span>':''}</span>`).join('')}
+    </div>
+
+    <h2 class="dssection">Componente - Input / Textarea / Select</h2>
+    <div class="card" style="margin-bottom:32px;gap:16px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div><div class="dslabel">Nome do Cliente</div><div style="padding:9px 12px;border:1px solid var(--borderMid);border-radius:8px;font-size:12px;color:var(--textMuted)">Ex: João Silva</div></div>
+        <div><div class="dslabel">E-mail</div><div style="padding:9px 12px;border:1px solid var(--borderMid);border-radius:8px;font-size:12px;color:var(--textMuted)">joao@empresa.com</div></div>
+      </div>
+      <div><div class="dslabel">Com erro</div><div style="padding:9px 12px;border:1px solid var(--red);border-radius:8px;height:36px"></div><div style="font-size:9px;color:var(--red);margin-top:4px">Campo obrigatório</div></div>
+      <div><div class="dslabel">Descrição</div><div style="padding:9px 12px;border:1px solid var(--borderMid);border-radius:8px;font-size:12px;color:var(--textMuted);height:64px">Descreva o problema...</div></div>
+      <div><div class="dslabel">Prioridade</div><div style="padding:9px 12px;border:1px solid var(--borderMid);border-radius:8px;font-size:12px;color:var(--textMuted);display:flex;justify-content:space-between">Selecione... <span>⌄</span></div></div>
+    </div>
+
+    <h2 class="dssection">Componente - Card</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px">
+      <div class="card" style="padding:12px"><span style="font-size:11px;color:var(--textMuted)">Card padding sm</span></div>
+      <div class="card" style="padding:16px"><span style="font-size:11px;color:var(--textMuted)">Card padding md</span></div>
+      <div class="card" style="box-shadow:0px 8px 24px rgba(0,0,0,0.14)"><span style="font-size:11px;color:var(--textMuted)">Card elevated lg</span></div>
+    </div>
+    <div class="card" style="margin-bottom:32px;gap:10px">
+      <div style="font-size:13px;font-weight:600">CardHeader</div>
+      <div style="height:1px;background:var(--border)"></div>
+      <div style="font-size:12px;color:var(--textSub)">CardBody - conteúdo principal</div>
+    </div>
+
+    <h2 class="dssection">Componente - FieldLabel / Divider</h2>
+    <div class="card" style="margin-bottom:32px;gap:10px">
+      <div class="dslabel" style="margin:0">Label simples</div>
+      <div class="dslabel" style="margin:0">Campo obrigatório <span style="color:var(--red)">*</span></div>
+      <div style="height:1px;background:var(--divider)"></div>
+    </div>
+
+    <h2 class="dssection">Padrões de Interação (Eventos)</h2>
+    <div class="card" style="margin-bottom:32px;gap:0">
+      ${[
+        ['onMouseEnter / onMouseLeave','e.currentTarget.style.background = C.hover / "transparent" - hover de linha e item de nav'],
+        ['onFocus / onBlur','Inputs alteram border-color para C.primary / C.borderMid via useState(focused)'],
+        ['onClick (navigate)','setScreen(s) + setSelectedTicketId(null) - navegação limpa entre telas'],
+        ['onBack',"setSelectedTicketId(null); setScreen(returnScreen); setReturnScreen('fila')"],
+        ['onExpandFromKanban',"Salva returnScreen='kanban', converte ticket kanban \u2192 Ticket e abre detalhe"],
+        ['AnimatePresence key','Drawer usa key={ticket.id} para animar saída ao trocar ticket'],
+        ['DnD: useDrag / useDrop','react-dnd com HTML5Backend - status do ticket muda ao soltar na coluna'],
+        ['Toggle dark mode','ThemeContext.toggle() \u2192 re-renderiza toda árvore via useMemo no provider'],
+      ].map(([k,v],i,arr)=>`
+        <div style="display:grid;grid-template-columns:200px 1fr;gap:8px;padding:6px 0">
+          <span style="font-size:9px;font-weight:600;color:var(--primary);padding-top:3px">${k}</span>
+          <span style="font-size:9px;color:var(--textMid)">${v}</span>
+        </div>`).join('')}
+    </div>
+
+    <h2 class="dssection">Como Importar</h2>
+    <div class="card">
+      <pre style="font-family:'Courier New',monospace;font-size:12px;color:var(--primary);background:var(--pageBg);border:1px solid var(--border);border-radius:8px;padding:16px;overflow:auto;margin:0"><span style="color:var(--textMuted)">// Barrel import - tudo de uma vez:</span>
+import { Button, Avatar, PriorityBadge, StatusBadge, SLAIndicator, Tag, Card, FieldLabel, Divider, Input, Select, F, fontSize, radius } from "./ds";
+
+<span style="color:var(--textMuted)">// Theme hook (obrigatório em todos os componentes que usam cores):</span>
+import { useTheme } from "./sarfaty/ThemeContext";
+const { C, darkMode, toggle } = useTheme();
+
+<span style="color:var(--textMuted)">// Tokens de tipografia disponíveis:</span>
+import { F, fontSize, fontWeight, radius, shadow, transition } from "./ds";</pre>
+    </div>`;
+}
+
+function toggleDark(){
+  const dark = document.body.classList.toggle('dark');
+  document.getElementById('darklabel').textContent = dark ? 'Modo claro' : 'Modo escuro';
+  document.getElementById('darkicon').innerHTML = dark
+    ? svg('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/>',13,'var(--amber)')
+    : svg('<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/>',13,'var(--textMuted)');
+  renderAll();
+  try{ localStorage.setItem('orbi-dark', dark ? '1' : '0'); }catch(e){}
+}
+
+function renderAll(){ renderQueue(); renderKanban(); renderCanais(); renderRelatorios(); renderDS(); }
+
+function showView(id){
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById('view-' + id).classList.add('active');
+  document.querySelectorAll('nav .navitem').forEach(n => n.classList.remove('active'));
+  document.querySelector(`nav .navitem[data-id="${id}"]`).classList.add('active');
+}
+
+try{ if(localStorage.getItem('orbi-dark') === '1'){ toggleDark(); } else { renderAll(); } }catch(e){ renderAll(); }
+</script>
+</body>
+</html>

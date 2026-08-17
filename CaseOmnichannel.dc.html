@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chamados Omnichannel · Wellington Mendes</title>
+<link rel="stylesheet" href="_ds/broadsheet-98e66aba-19cf-4391-97dc-cc67491d02cf/styles.css">
+<script src="_ds/broadsheet-98e66aba-19cf-4391-97dc-cc67491d02cf/_ds_bundle.js"></script>
+<style>
+:root{--color-bg:#F6F9FD}
+body{margin:0;font-family:'Quicksand',system-ui,sans-serif}
+body,p,li,span,div,a,blockquote,ul,ol,td,th,label,button{font-family:'Quicksand',system-ui,sans-serif!important}
+h1,h2,h3{font-family:'Poppins',system-ui,sans-serif!important}
+a{color:var(--color-accent-700)}
+a:hover{background:linear-gradient(100deg,#B7A6E8,#F5B87A);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-icon{color:color-mix(in srgb, var(--color-text) 70%, transparent)}
+.nav-icon:hover{color:#F5B87A}
+.roadmap-inter,.roadmap-inter p,.roadmap-inter span,.roadmap-inter div,.roadmap-inter h2,.roadmap-inter h3,.roadmap-inter h4{font-family:'Inter',system-ui,sans-serif!important}
+@keyframes sk-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.sk{background:linear-gradient(90deg,#E7EDF5 25%,#F3F7FC 50%,#E7EDF5 75%);background-size:200% 100%;animation:sk-shimmer 1.4s linear infinite;border-radius:6px}
+#skeleton{transition:opacity .45s ease}
+#skeleton[hidden]{display:none}
+@media (prefers-reduced-motion:reduce){.sk{animation:none}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet">
+</helmet>
+
+<div id="skeleton" aria-hidden="true" style="position:fixed;inset:0;z-index:9999;background:#F6F9FD;overflow:hidden">
+  <div style="display:flex;align-items:center;gap:32px;padding:20px max(24px, calc((100% - 1080px) / 2 + 24px));background:rgb(253,254,255);box-shadow:0 2px 4px rgba(0,0,0,0.08)">
+    <div class="sk" style="width:180px;height:19px"></div>
+    <div style="display:flex;gap:26px;margin-left:auto">
+      <div class="sk" style="width:62px;height:14px"></div>
+      <div class="sk" style="width:48px;height:14px"></div>
+      <div class="sk" style="width:60px;height:14px"></div>
+      <div class="sk" style="width:22px;height:22px;border-radius:50%"></div>
+      <div class="sk" style="width:22px;height:22px;border-radius:50%"></div>
+    </div>
+  </div>
+  <div style="max-width:1080px;margin:0 auto;padding:clamp(32px,6vh,64px) clamp(24px,5vw,48px) 0">
+    <div class="sk" style="width:170px;height:15px"></div>
+    <div class="sk" style="width:260px;height:13px;margin-top:clamp(28px,5vw,48px)"></div>
+    <div class="sk" style="width:min(680px,88%);height:clamp(42px,7vw,84px);margin-top:14px;border-radius:10px"></div>
+    <div class="sk" style="width:min(430px,66%);height:22px;margin-top:clamp(22px,3vw,32px)"></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:clamp(20px,3vw,32px);margin-top:clamp(36px,6vw,56px);max-width:840px">
+      <div><div class="sk" style="height:13px;width:70%"></div><div class="sk" style="height:26px;margin-top:12px"></div></div>
+      <div><div class="sk" style="height:13px;width:70%"></div><div class="sk" style="height:26px;margin-top:12px"></div></div>
+      <div><div class="sk" style="height:13px;width:70%"></div><div class="sk" style="height:26px;margin-top:12px"></div></div>
+    </div>
+    <div class="sk" style="height:clamp(180px,26vh,300px);margin-top:clamp(56px,9vh,96px);border-radius:12px"></div>
+  </div>
+</div>
+
+<div data-screen-label="Case 02 · Chamados Omnichannel" style="background:var(--color-bg);color:var(--color-text)">
+
+<nav style="position:sticky;top:0;z-index:10;background:rgb(253,254,255);display:flex;align-items:center;gap:32px;padding:20px max(24px, calc((100% - 1080px) / 2 + 24px));font-family:'Quicksand',system-ui,sans-serif;opacity:0.84;box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.15)">
+  <a href="Home.dc.html" style="font-size:19px;font-weight:700;text-decoration:none;color:var(--color-text)">Wellington Mendes</a>
+  <div style="display:flex;gap:26px;margin-left:auto;font-size:15.5px;font-weight:600">
+    <a href="Home.dc.html#sobre" style="text-decoration:none">sobre</a>
+    <a href="Home.dc.html#projetos" style="text-decoration:none">projetos</a>
+    <a href="Home.dc.html#contato" style="text-decoration:none">contato</a>
+  </div>
+  <div style="display:flex;gap:16px;align-items:center;margin-left:8px">
+    <a href="https://br.linkedin.com/in/wellmendes" target="_blank" rel="noopener" class="nav-icon" aria-label="LinkedIn" style="display:flex">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><text x="12" y="17.5" text-anchor="middle" font-size="17" font-weight="700" font-family="Arial,sans-serif" fill="currentColor">in</text></svg>
+    </a>
+    <a href="mailto:Wellington_Mendes7@outlook.com" class="nav-icon" aria-label="E-mail" style="display:flex">
+      <svg width="20" height="20" viewBox="0 0 256 256" fill="none"><rect x="32" y="56" width="192" height="144" rx="12" stroke="currentColor" stroke-width="16"></rect><path d="M44 66l84 68 84-68" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </a>
+  </div>
+</nav>
+
+<div style="max-width:1080px;margin:0 auto;padding:0 clamp(24px,5vw,48px)">
+
+  <header style="padding:clamp(32px,6vh,64px) 0 clamp(56px,9vh,96px)">
+    <a href="Home.dc.html#projetos" style="font-size:16px;text-decoration:none">← Todos os projetos</a>
+    <p style="font-size:14px;margin:clamp(28px,5vw,48px) 0 14px;color:color-mix(in srgb, var(--color-text) 55%, transparent)">02 · Pesquisa e service design</p>
+    <h1 style="font-size:clamp(42px,7vw,84px);line-height:1.0;letter-spacing:-0.025em;font-weight:600;margin:0;text-wrap:balance;font-family:'Poppins',system-ui,sans-serif;background:linear-gradient(100deg, var(--color-accent-600), var(--color-accent-2-600));-webkit-background-clip:text;background-clip:text;color:transparent">Chamados Omnichannel</h1>
+    <p style="font-size:clamp(19px,2.2vw,25px);line-height:1.45;max-width:34ch;margin:clamp(22px,3vw,32px) 0 0;text-wrap:pretty;color:color-mix(in srgb, var(--color-text) 88%, transparent)">Quatro canais de atendimento sem histórico único, reunidos em um chamado só.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:clamp(20px,3vw,32px);margin-top:clamp(36px,6vw,56px);max-width:840px">
+      <div>
+        <p style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 8px;color:color-mix(in srgb, var(--color-text) 50%, transparent)">Papel</p>
+        <p style="font-size:16.5px;line-height:1.5;margin:0">UX Research, UX/UI e Design System</p>
+      </div>
+      <div>
+        <p style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 8px;color:color-mix(in srgb, var(--color-text) 50%, transparent)">Contexto</p>
+        <p style="font-size:16.5px;line-height:1.5;margin:0">Atendimento interno</p>
+      </div>
+      <div>
+        <p style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 8px;color:color-mix(in srgb, var(--color-text) 50%, transparent)">Status</p>
+        <p style="font-size:16.5px;line-height:1.5;margin:0">Discovery em documentação</p>
+      </div>
+      <div>
+        <p style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 8px;color:color-mix(in srgb, var(--color-text) 50%, transparent)">Canais</p>
+        <p style="font-size:16.5px;line-height:1.5;margin:0">E-mail, telefone, WhatsApp e outros</p>
+      </div>
+    </div>
+  </header>
+
+  <section data-reveal="" id="contexto" style="padding:20px 0 48px">
+    <span style="display:block;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 55%, transparent);margin-bottom:14px">Contexto</span>
+    <h2 style="font-size:clamp(28px,3.6vw,42px);line-height:1.1;letter-spacing:-0.015em;font-weight:600;margin:0 0 16px">Um atendimento que entra por todo lado</h2>
+    <p style="font-size:17.5px;line-height:1.65;max-width:68ch;color:color-mix(in srgb, var(--color-text) 82%, transparent)">As solicitações de suporte chegam por canais diferentes: e-mail, telefone, WhatsApp e outros caminhos que o time foi acumulando. Cada canal tem seu próprio jeito de registrar, acompanhar e cobrar retorno, o que significa que a experiência de pedir ajuda muda conforme a porta de entrada.</p>
+  </section>
+
+  <section data-reveal="" id="problema" style="padding:0 0 48px">
+    <span style="display:block;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 55%, transparent);margin-bottom:14px">Problema</span>
+    <h2 style="font-size:clamp(28px,3.6vw,42px);line-height:1.1;letter-spacing:-0.015em;font-weight:600;margin:0 0 24px">O custo da descentralização</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+      <div class="card elev-sm"><h3 class="card-title">Sem histórico único</h3><p class="card-body">A mesma solicitação pode existir em três lugares e em nenhum por completo.</p></div>
+      <div class="card elev-sm"><h3 class="card-title">Acompanhamento difícil</h3><p class="card-body">Quem pediu não sabe em que pé está, e quem atende também não.</p></div>
+      <div class="card elev-sm"><h3 class="card-title">SLA sem base</h3><p class="card-body">Sem registro consistente, não existe prazo confiável para medir.</p></div>
+      <div class="card elev-sm"><h3 class="card-title">Mensuração frágil</h3><p class="card-body">Volume, reincidência e gargalos ficam invisíveis para o time.</p></div>
+    </div>
+  </section>
+
+  <section data-reveal="" id="usuarios" style="padding:0 0 48px">
+    <span style="display:block;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 55%, transparent);margin-bottom:14px">Papo com usuários</span>
+    <h2 style="font-size:clamp(28px,3.6vw,42px);line-height:1.1;letter-spacing:-0.015em;font-weight:600;margin:0 0 16px">Pergunta, evidência, interpretação, decisão</h2>
+    <p style="font-size:17.5px;line-height:1.65;max-width:68ch;margin:0 0 32px;color:color-mix(in srgb, var(--color-text) 82%, transparent)">O que as conversas com os stakeholders e a navegação pelo sistema atual realmente mudaram no projeto, e não apenas o fato de que houve entrevistas. O foco do processo é gerar uma melhoria no processo de atendimento e criação de um histórico que seja possível de ser visualizado e gerenciado de forma mais eficaz.</p>
+
+    <div style="margin-bottom:28px">
+      <p style="font-size:13px;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 10px;color:var(--color-accent-2-700)">COMO O STAKEHOLDER ATENDE HOJE</p>
+      <p style="font-size:16.5px;line-height:1.65;max-width:70ch;margin:0;color:color-mix(in srgb, var(--color-text) 82%, transparent)">O ponto de partida foi um fluxograma AS IS que o próprio time formalizou. Todo o atendimento acontece por e-mail, sem portal: cerca de 70 e-mails por dia, concentrados em uns 10 clientes, atendidos por 3 pessoas sem separação por categoria na entrada. A Cobrança responde em cerca de 3 horas; quando o pedido precisa passar pela Gestão de Risco, o prazo sobe para cerca de 1 dia. Existem regras de roteamento não documentadas em lugar nenhum além da cabeça do time: abatimento até 30% do título fica na Cobrança, acima disso vai para o Risco; prorrogação por mercadoria em atraso vai para o Risco com uma checagem extra; baixa vinculada ou caucionada também passa pelo Risco. O problema de fundo, que só apareceu quando conversamos diretamente com o time, é que esse conhecimento vive nas pessoas: não há protocolo, não há prazo formalizado como compromisso (é conduta, não regra do sistema), não há histórico consolidado e não há visão gerencial de volume por tipo ou cliente.</p>
+    </div>
+
+    <div>
+      <p style="font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 10px; color: var(--color-accent-2-700); display: none">O que a navegação no sistema atual revelou</p>
+      <p style="font-size: 16.5px; line-height: 1.65; max-width: 70ch; margin: 0; color: color-mix(in srgb, var(--color-text) 82%, transparent); display: none">Ao mapear o Sarfaty One como ele é hoje pela ótica de um cliente externo leigo, e não pela ótica de TI interna, os furos ficaram mais claros. Não existe login para cliente, só Microsoft, que serve apenas colaboradores. O painel é único, com módulos internos (RH, licenças, financeiro) que não podem aparecer para alguém de fora. As categorias de chamado são todas de TI (VPN, impressora), nada fala a língua do cliente (prorrogação, abatimento, recompra, baixa, anuência, circularização). Quem abre o chamado escolhe a própria prioridade, o que na prática significa que todo mundo marca urgente. O aviso de chamado criado aparece na tela e some em segundos, nada é enviado por e-mail, então um cliente que não fica de olho na tela simplesmente não sabe que foi atendido. O prazo do sistema é fixo em 72 horas para qualquer tipo de pedido; entrar com esse número seria comunicar formalmente um serviço pior do que o já prestado hoje. Existe um botão de excluir chamado que apaga o histórico inteiro, e o campo Nota Interna começa desmarcado, ou seja, o padrão hoje é que uma anotação interna vá parar na resposta ao cliente por descuido.</p>
+    </div>
+  </section>
+
+  <section data-reveal="" id="csd" style="padding:0 0 48px">
+    <span style="display:block;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 55%, transparent);margin-bottom:14px">Matriz CSD</span>
+    <h2 style="font-size:clamp(28px,3.6vw,42px);line-height:1.1;letter-spacing:-0.015em;font-weight:600;margin:0 0 16px">Transformando um problema solto em perguntas</h2>
+    <p style="font-size:17.5px;line-height:1.65;max-width:68ch;margin:0 0 28px;color:color-mix(in srgb, var(--color-text) 82%, transparent)">A matriz separou o que já era fato do que era só crença, e virou pauta de investigação para as conversas.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+      <div class="roadmap-inter" style="background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:20px;box-shadow:0px 1px 3px rgba(0,0,0,0.06);display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="width:9px;height:9px;border-radius:999px;background:#1E4A2D"></span>
+          <h3 style="font-size:13px;font-weight:700;margin:0;color:#1e2939">Certezas</h3>
+          <span style="margin-left:auto;background:#D0E8D8;color:#1E4A2D;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px">3 itens</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p style="margin:0;background:#F1F8F4;border:1px solid #CFE3D8;border-radius:12px;padding:13px 14px;font-size:12.5px;line-height:1.5;color:#364153">As solicitações chegam por e-mail, telefone, WhatsApp e outros canais.</p><p style="margin:0;background:#F1F8F4;border:1px solid #CFE3D8;border-radius:12px;padding:13px 14px;font-size:12.5px;line-height:1.5;color:#364153">Não existe um histórico único do que foi pedido e do que foi respondido.</p><p style="margin:0;background:#F1F8F4;border:1px solid #CFE3D8;border-radius:12px;padding:13px 14px;font-size:12.5px;line-height:1.5;color:#364153">Cada canal registra a informação de um jeito diferente.</p>
+        </div>
+      </div>
+      <div class="roadmap-inter" style="background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:20px;box-shadow:0px 1px 3px rgba(0,0,0,0.06);display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="width:9px;height:9px;border-radius:999px;background:#D97706"></span>
+          <h3 style="font-size:13px;font-weight:700;margin:0;color:#1e2939">Suposições</h3>
+          <span style="margin-left:auto;background:#FFFBEB;color:#D97706;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px">3 itens</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p style="margin:0;background:#FFFDF6;border:1px solid #F6E7C8;border-radius:12px;padding:13px 14px;font-size:12.5px;line-height:1.5;color:#364153">O canal escolhido tem mais a ver com pressa do que com o tipo de pedido.</p><p style="margin:0;background:#FFFDF6;border:1px solid #F6E7C8;border-radius:12px;padding:13px 14px;font-size:12.5px;line-height:1.5;color:#364153">Parte do retrabalho vem de pedidos duplicados em canais diferentes.</p><p style="margin:0;background:#FFFDF6;border:1px solid #F6E7C8;border-radius:12px;padding:13px 14px;font-size:12.5px;line-height:1.5;color:#364153">Quem atende monta um controle próprio para não perder pedido.</p>
+        </div>
+      </div>
+      <div class="roadmap-inter" style="background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:20px;box-shadow:0px 1px 3px rgba(0,0,0,0.06);display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="width:9px;height:9px;border-radius:999px;background:#0092B8"></span>
+          <h3 style="font-size:13px;font-weight:700;margin:0;color:#1e2939">Dúvidas</h3>
+          <span style="margin-left:auto;background:#ECFEFF;color:#0092B8;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px">3 itens</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p style="margin:0;background:#F5FDFF;border:1px solid #CDEAF2;border-radius:12px;padding:13px 14px;font-size:12.5px;line-height:1.5;color:#364153">Qual canal concentra o maior volume e qual gera mais retrabalho?</p><p style="margin:0;background:#F5FDFF;border:1px solid #CDEAF2;border-radius:12px;padding:13px 14px;font-size:12.5px;line-height:1.5;color:#364153">Em que momento um pedido se perde no caminho?</p><p style="margin:0;background:#F5FDFF;border:1px solid #CDEAF2;border-radius:12px;padding:13px 14px;font-size:12.5px;line-height:1.5;color:#364153">O que as pessoas consideram “resolvido”?</p>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:13px;margin-top:16px;color:color-mix(in srgb, var(--color-text) 60%, transparent)">Recriação da matriz do board do projeto.</p>
+  </section>
+
+  <section data-reveal="" id="decisoes" style="padding:0 0 48px">
+    <span style="display:block;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 55%, transparent);margin-bottom:14px">Decisões</span>
+    <h2 style="font-size:clamp(28px,3.6vw,42px);line-height:1.1;letter-spacing:-0.015em;font-weight:600;margin:0 0 16px">O que mudou de rumo por causa das conversas</h2>
+    <p style="font-size:17.5px;line-height:1.65;max-width:68ch;margin:0 0 28px;color:color-mix(in srgb, var(--color-text) 82%, transparent)">Algumas decisões só surgiram porque questionamos hipóteses iniciais junto com quem usa o sistema.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 16px">
+      <div class="card elev-sm" style="transform: scale(0.9); display: flex; flex-direction: column"><h3 class="card-title">Cadastro por CNPJ, descartado</h3><p class="card-body">CNPJ é dado público e não prova identidade de ninguém.</p></div>
+      <div class="card elev-sm" style="transform: scale(0.9); display: flex; flex-direction: column"><h3 class="card-title">Exclusão virou cancelamento com registro</h3><p class="card-body">Apagar o histórico elimina a prova do que foi pedido.</p></div>
+      <div class="card elev-sm" style="transform: scale(0.9); display: flex; flex-direction: column"><h3 class="card-title">Nota interna segura entrou no MVP</h3><p class="card-body">Mesmo sendo item do lado do operador: o risco de vazar informação interna é alto assim que o cliente entra no sistema.</p></div>
+      <div class="card elev-sm" style="transform: scale(0.9); display: flex; flex-direction: column"><h3 class="card-title">Prioridade saiu das mãos do cliente</h3><p class="card-body">A escolha de prioridade passou para a triagem, não para quem abre o chamado.</p></div>
+    </div>
+  </section>
+
+  <section data-reveal="" id="prototipo" style="padding:0 0 48px">
+    <span style="display:block;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 55%, transparent);margin-bottom:14px">Protótipo</span>
+    <h2 style="font-size:clamp(28px,3.6vw,42px);line-height:1.1;letter-spacing:-0.015em;font-weight:600;margin:0 0 16px">A solução para navegar</h2>
+    <p style="font-size:17.5px;line-height:1.65;max-width:68ch;margin:0 0 20px;color:color-mix(in srgb, var(--color-text) 82%, transparent)">O protótipo do chamado centralizado, com a fila de atendimento e o quadro de escalonamento. Clique nos itens da barra lateral para trocar de tela.</p>
+    <div style="border-radius:10px;overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid #D8E3DC">
+      <div style="background:#1E4A2D;padding:9px 14px;display:flex;align-items:center;justify-content:space-between;font-family:system-ui,sans-serif">
+        <span style="font-size:12.5px;font-weight:600;color:#fff;white-space:nowrap">Service Desk · Omnichannel</span>
+        <a href="https://couch-manual-26017817.figma.site" target="_blank" rel="noopener" style="font-size:11.5px;color:#D0E8D8;text-decoration:none;white-space:nowrap">Abrir em nova aba ↗</a>
+      </div>
+      <iframe src="https://couch-manual-26017817.figma.site" title="Protótipo navegável do Service Desk Omnichannel" loading="lazy" allowfullscreen="" style="width:100%;height:700px;border:0;display:block"></iframe>
+    </div>
+    <p style="font-size:12.5px;margin:10px 0 0;color:color-mix(in srgb, var(--color-text) 60%, transparent)">Protótipo com dados de exemplo.</p>
+  </section>
+
+  <section data-reveal="" id="roadmap" style="padding:0 0 48px">
+    <span style="display:block;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 55%, transparent);margin-bottom:14px">Roadmap &amp; MVP</span>
+    <h2 style="font-size:clamp(28px,3.6vw,42px);line-height:1.1;letter-spacing:-0.015em;font-weight:600;margin:0 0 16px">Portal de Atendimento, Roadmap</h2>
+    <p style="font-size:17.5px;line-height:1.65;max-width:68ch;margin:0 0 28px;color:color-mix(in srgb, var(--color-text) 82%, transparent)">O que entra no MVP para o cliente começar a usar, e o que fica para depois. Marco 1 soma de 9,5 a 12,5 dias; Marco 2, de 11 a 19,5 dias. No mesmo estilo visual do protótipo acima. O escopo foi alinhado com um desenvolvedor.</p>
+
+
+    <div class="roadmap-inter" style="border:1px solid #E2E8F0;border-radius:18px;background:#fff;padding:22px;overflow-x:auto;box-shadow:0px 1px 3px rgba(0,0,0,0.06)">
+      <div style="display:flex;gap:28px;align-items:stretch;min-width:max-content">
+
+        <div style="display:flex;flex-direction:column">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:nowrap;height:26px">
+            <span style="background:#1E4A2D;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:5px 11px;border-radius:999px;white-space:nowrap">Marco 1 · MVP</span>
+            <span style="background:#D0E8D8;color:#1E4A2D;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:5px 11px;border-radius:999px;white-space:nowrap">Must Have</span>
+            <span style="font-size:11.5px;color:#99A1AF;white-space:nowrap">O mínimo para o cliente entrar e usar</span>
+          </div>
+          <div style="display:flex;gap:14px;align-items:stretch;flex:1">
+            
+          <div style="width:206px;flex-shrink:0;background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0px 1px 3px rgba(0,0,0,0.05)">
+            <div style="width:34px;height:34px;border-radius:10px;background:#D0E8D8;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E4A2D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+            <div style="font-size:13px;font-weight:600;line-height:1.3;color:#1e2939">Login próprio com senha</div>
+            <div style="font-size:11.5px;line-height:1.45;color:#99A1AF">A porta de entrada: sem isso o cliente não usa nada.</div>
+            
+            <div style="margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <span style="background:#D0E8D8;color:#1E4A2D;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px">01</span>
+              <span style="font-size:10.5px;font-weight:600;color:#4a5565;white-space:nowrap">⏱ 1,5 dias</span>
+            </div>
+          </div>
+          <div style="width:206px;flex-shrink:0;background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0px 1px 3px rgba(0,0,0,0.05)">
+            <div style="width:34px;height:34px;border-radius:10px;background:#D0E8D8;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E4A2D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0M18 9v6M21 12h-6"/></svg></div>
+            <div style="font-size:13px;font-weight:600;line-height:1.3;color:#1e2939">Cliente cadastrado pela equipe, com convite por e-mail</div>
+            <div style="font-size:11.5px;line-height:1.45;color:#99A1AF">Garante que quem entra é o cliente de verdade.</div>
+            <div style="background:#FFF7E6;border:1px solid #F5E0B0;border-radius:8px;padding:7px 9px;font-size:10.5px;line-height:1.35;color:#8A5200"><b style="color:#D97706">▪</b> Alternativa: só login e senha, 1,5 dias</div>
+            <div style="margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <span style="background:#D0E8D8;color:#1E4A2D;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px">02</span>
+              <span style="font-size:10.5px;font-weight:600;color:#4a5565;white-space:nowrap">⏱ 2–3 dias</span>
+            </div>
+          </div>
+          <div style="width:206px;flex-shrink:0;background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0px 1px 3px rgba(0,0,0,0.05)">
+            <div style="width:34px;height:34px;border-radius:10px;background:#D0E8D8;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E4A2D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg></div>
+            <div style="font-size:13px;font-weight:600;line-height:1.3;color:#1e2939">Tela separada, só com chamados</div>
+            <div style="font-size:11.5px;line-height:1.45;color:#99A1AF">Fora dos módulos internos de RH, licenças e financeiro.</div>
+            
+            <div style="margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <span style="background:#D0E8D8;color:#1E4A2D;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px">03</span>
+              <span style="font-size:10.5px;font-weight:600;color:#4a5565;white-space:nowrap">⏱ 1–2 dias</span>
+            </div>
+          </div>
+          <div style="width:206px;flex-shrink:0;background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0px 1px 3px rgba(0,0,0,0.05)">
+            <div style="width:34px;height:34px;border-radius:10px;background:#D0E8D8;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E4A2D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg></div>
+            <div style="font-size:13px;font-weight:600;line-height:1.3;color:#1e2939">Meus Chamados, vê somente os próprios</div>
+            <div style="font-size:11.5px;line-height:1.45;color:#99A1AF">A lista já funciona. É o suficiente para acompanhar.</div>
+            
+            <div style="margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <span style="background:#D0E8D8;color:#1E4A2D;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px">04</span>
+              <span style="font-size:10.5px;font-weight:600;color:#4a5565;white-space:nowrap">⏱ 1 dia</span>
+            </div>
+          </div>
+          <div style="width:206px;flex-shrink:0;background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0px 1px 3px rgba(0,0,0,0.05)">
+            <div style="width:34px;height:34px;border-radius:10px;background:#D0E8D8;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E4A2D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div>
+            <div style="font-size:13px;font-weight:600;line-height:1.3;color:#1e2939">Abertura de chamado sem jargão</div>
+            <div style="font-size:11.5px;line-height:1.45;color:#99A1AF">Sem SLA, fila ou "N/A". Linguagem para o cliente.</div>
+            
+            <div style="margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <span style="background:#D0E8D8;color:#1E4A2D;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px">05</span>
+              <span style="font-size:10.5px;font-weight:600;color:#4a5565;white-space:nowrap">⏱ 1,5 dias</span>
+            </div>
+          </div>
+          <div style="width:206px;flex-shrink:0;background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0px 1px 3px rgba(0,0,0,0.05)">
+            <div style="width:34px;height:34px;border-radius:10px;background:#D0E8D8;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E4A2D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg></div>
+            <div style="font-size:13px;font-weight:600;line-height:1.3;color:#1e2939">Servidor e banco próprios com captcha</div>
+            <div style="font-size:11.5px;line-height:1.45;color:#99A1AF">Base técnica mínima para o sistema ficar na internet.</div>
+            
+            <div style="margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <span style="background:#D0E8D8;color:#1E4A2D;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px">06</span>
+              <span style="font-size:10.5px;font-weight:600;color:#4a5565;white-space:nowrap">⏱ 2–3 dias</span>
+            </div>
+          </div>
+          <div style="width:206px;flex-shrink:0;background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0px 1px 3px rgba(0,0,0,0.05)">
+            <div style="width:34px;height:34px;border-radius:10px;background:#D0E8D8;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E4A2D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.4-3 8-7 9-4-1-7-4.6-7-9V6z"/><path d="M9.5 12.2l1.8 1.8 3.4-3.6"/></svg></div>
+            <div style="font-size:13px;font-weight:600;line-height:1.3;color:#1e2939">Nota interna com padrão seguro</div>
+            <div style="font-size:11.5px;line-height:1.45;color:#99A1AF">A caixa não começa desmarcada com cliente externo.</div>
+            
+            <div style="margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <span style="background:#D0E8D8;color:#1E4A2D;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px">07</span>
+              <span style="font-size:10.5px;font-weight:600;color:#4a5565;white-space:nowrap">⏱ 0,5 dia</span>
+            </div>
+          </div>
+          </div>
+          
+        <div style="display:flex;gap:14px;margin-top:14px;padding-left:0">
+          <div style="width:206px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative">
+            <div style="position:absolute;top:5px;left:0;right:0;height:2px;background:#1E4A2D"></div>
+            <div style="width:11px;height:11px;border-radius:999px;background:#1E4A2D;position:relative;z-index:1;box-shadow:0 0 0 3px #fff"></div>
+            <span style="font-size:10px;color:#99A1AF">01</span>
+          </div><div style="width:206px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative">
+            <div style="position:absolute;top:5px;left:0;right:0;height:2px;background:#1E4A2D"></div>
+            <div style="width:11px;height:11px;border-radius:999px;background:#1E4A2D;position:relative;z-index:1;box-shadow:0 0 0 3px #fff"></div>
+            <span style="font-size:10px;color:#99A1AF">02</span>
+          </div><div style="width:206px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative">
+            <div style="position:absolute;top:5px;left:0;right:0;height:2px;background:#1E4A2D"></div>
+            <div style="width:11px;height:11px;border-radius:999px;background:#1E4A2D;position:relative;z-index:1;box-shadow:0 0 0 3px #fff"></div>
+            <span style="font-size:10px;color:#99A1AF">03</span>
+          </div><div style="width:206px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative">
+            <div style="position:absolute;top:5px;left:0;right:0;height:2px;background:#1E4A2D"></div>
+            <div style="width:11px;height:11px;border-radius:999px;background:#1E4A2D;position:relative;z-index:1;box-shadow:0 0 0 3px #fff"></div>
+            <span style="font-size:10px;color:#99A1AF">04</span>
+          </div><div style="width:206px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative">
+            <div style="position:absolute;top:5px;left:0;right:0;height:2px;background:#1E4A2D"></div>
+            <div style="width:11px;height:11px;border-radius:999px;background:#1E4A2D;position:relative;z-index:1;box-shadow:0 0 0 3px #fff"></div>
+            <span style="font-size:10px;color:#99A1AF">05</span>
+          </div><div style="width:206px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative">
+            <div style="position:absolute;top:5px;left:0;right:0;height:2px;background:#1E4A2D"></div>
+            <div style="width:11px;height:11px;border-radius:999px;background:#1E4A2D;position:relative;z-index:1;box-shadow:0 0 0 3px #fff"></div>
+            <span style="font-size:10px;color:#99A1AF">06</span>
+          </div><div style="width:206px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative">
+            <div style="position:absolute;top:5px;left:0;right:0;height:2px;background:#1E4A2D"></div>
+            <div style="width:11px;height:11px;border-radius:999px;background:#1E4A2D;position:relative;z-index:1;box-shadow:0 0 0 3px #fff"></div>
+            <span style="font-size:10px;color:#99A1AF">07</span>
+          </div>
+        </div>
+        </div>
+
+        <div style="width:1px;align-self:stretch;background:#E2E8F0"></div>
+
+        <div style="display:flex;flex-direction:column">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:nowrap;height:26px">
+            <span style="background:#009966;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:5px 11px;border-radius:999px;white-space:nowrap">Marco 2 · Pós-MVP</span>
+            <span style="background:#ECFDF5;color:#009966;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:5px 11px;border-radius:999px;white-space:nowrap">Nice to Have</span>
+            <span style="font-size:11.5px;color:#99A1AF;white-space:nowrap">O que melhora a experiência e a operação</span>
+          </div>
+          <div style="display:flex;gap:14px;align-items:stretch;flex:1">
+            
+          <div style="width:206px;flex-shrink:0;background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0px 1px 3px rgba(0,0,0,0.05)">
+            <div style="width:34px;height:34px;border-radius:10px;background:#ECFDF5;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#009966" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5l-8.6 8.6a5 5 0 0 1-7-7l9-9a3.3 3.3 0 0 1 4.7 4.7l-9 9a1.7 1.7 0 0 1-2.4-2.4l8.3-8.3"/></svg></div>
+            <div style="font-size:13px;font-weight:600;line-height:1.3;color:#1e2939">Anexo de arquivo</div>
+            <div style="font-size:11.5px;line-height:1.45;color:#99A1AF">Comprovante, boleto, base para os tipos de pedido abaixo.</div>
+            
+            <div style="margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <span style="background:#ECFDF5;color:#009966;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px">01</span>
+              <span style="font-size:10.5px;font-weight:600;color:#4a5565;white-space:nowrap">⏱ 2 dias</span>
+            </div>
+          </div>
+          <div style="width:206px;flex-shrink:0;background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0px 1px 3px rgba(0,0,0,0.05)">
+            <div style="width:34px;height:34px;border-radius:10px;background:#ECFDF5;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#009966" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg></div>
+            <div style="font-size:13px;font-weight:600;line-height:1.3;color:#1e2939">Aviso de resposta por e-mail</div>
+            <div style="font-size:11.5px;line-height:1.45;color:#99A1AF">Melhora o acompanhamento, exige integração.</div>
+            
+            <div style="margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <span style="background:#ECFDF5;color:#009966;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px">02</span>
+              <span style="font-size:10.5px;font-weight:600;color:#4a5565;white-space:nowrap">⏱ 2–3 dias</span>
+            </div>
+          </div>
+          <div style="width:206px;flex-shrink:0;background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0px 1px 3px rgba(0,0,0,0.05)">
+            <div style="width:34px;height:34px;border-radius:10px;background:#ECFDF5;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#009966" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5M3 17.5l9 5 9-5"/></svg></div>
+            <div style="font-size:13px;font-weight:600;line-height:1.3;color:#1e2939">Tipos de pedido e campos por tipo</div>
+            <div style="font-size:11.5px;line-height:1.45;color:#99A1AF">Prorrogação, abatimento, recompra e mais.</div>
+            
+            <div style="margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <span style="background:#ECFDF5;color:#009966;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px">03</span>
+              <span style="font-size:10.5px;font-weight:600;color:#4a5565;white-space:nowrap">⏱ 1,5–2 dias</span>
+            </div>
+          </div>
+          <div style="width:206px;flex-shrink:0;background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0px 1px 3px rgba(0,0,0,0.05)">
+            <div style="width:34px;height:34px;border-radius:10px;background:#ECFDF5;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#009966" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2.2"/><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="12" r="2.2"/><path d="M6 7.2v9.6M8.2 12h7.6"/></svg></div>
+            <div style="font-size:13px;font-weight:600;line-height:1.3;color:#1e2939">Separação por departamento</div>
+            <div style="font-size:11.5px;line-height:1.45;color:#99A1AF">Cobrança, Financeiro e Risco com alçada própria.</div>
+            
+            <div style="margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <span style="background:#ECFDF5;color:#009966;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px">04</span>
+              <span style="font-size:10.5px;font-weight:600;color:#4a5565;white-space:nowrap">⏱ 2–3 dias</span>
+            </div>
+          </div>
+          <div style="width:206px;flex-shrink:0;background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0px 1px 3px rgba(0,0,0,0.05)">
+            <div style="width:34px;height:34px;border-radius:10px;background:#ECFDF5;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#009966" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.4 2"/></svg></div>
+            <div style="font-size:13px;font-weight:600;line-height:1.3;color:#1e2939">Prazo por departamento</div>
+            <div style="font-size:11.5px;line-height:1.45;color:#99A1AF">Substituir as 72h fixas pelos prazos reais.</div>
+            
+            <div style="margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <span style="background:#ECFDF5;color:#009966;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px">05</span>
+              <span style="font-size:10.5px;font-weight:600;color:#4a5565;white-space:nowrap">⏱ 1–1,5 dias</span>
+            </div>
+          </div>
+          <div style="width:206px;flex-shrink:0;background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0px 1px 3px rgba(0,0,0,0.05)">
+            <div style="width:34px;height:34px;border-radius:10px;background:#ECFDF5;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#009966" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h5l2 3h4l2-3h5"/><path d="M5.5 5h13l2.5 7v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5z"/></svg></div>
+            <div style="font-size:13px;font-weight:600;line-height:1.3;color:#1e2939">Entrada do e-mail na fila</div>
+            <div style="font-size:11.5px;line-height:1.45;color:#99A1AF">Vira chamado automático ou direciona ao portal.</div>
+            
+            <div style="margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <span style="background:#ECFDF5;color:#009966;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px">06</span>
+              <span style="font-size:10.5px;font-weight:600;color:#4a5565;white-space:nowrap">⏱ 1–5 dias</span>
+            </div>
+          </div>
+          <div style="width:206px;flex-shrink:0;background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0px 1px 3px rgba(0,0,0,0.05)">
+            <div style="width:34px;height:34px;border-radius:10px;background:#ECFDF5;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#009966" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.4 12.3l2.5 2.5 4.7-5"/></svg></div>
+            <div style="font-size:13px;font-weight:600;line-height:1.3;color:#1e2939">Cliente fechar e avaliar</div>
+            <div style="font-size:11.5px;line-height:1.45;color:#99A1AF">Confirmação, reabertura e avaliação em 1 clique.</div>
+            
+            <div style="margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <span style="background:#ECFDF5;color:#009966;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px">07</span>
+              <span style="font-size:10.5px;font-weight:600;color:#4a5565;white-space:nowrap">⏱ 1–2 dias</span>
+            </div>
+          </div>
+          <div style="width:206px;flex-shrink:0;background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0px 1px 3px rgba(0,0,0,0.05)">
+            <div style="width:34px;height:34px;border-radius:10px;background:#ECFDF5;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#009966" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.2 9.2l5.6 5.6M14.8 9.2l-5.6 5.6"/></svg></div>
+            <div style="font-size:13px;font-weight:600;line-height:1.3;color:#1e2939">Cancelamento com registro</div>
+            <div style="font-size:11.5px;line-height:1.45;color:#99A1AF">Substituir o apagamento por cancelamento auditável.</div>
+            
+            <div style="margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+              <span style="background:#ECFDF5;color:#009966;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px">08</span>
+              <span style="font-size:10.5px;font-weight:600;color:#4a5565;white-space:nowrap">⏱ 0,5–1 dia</span>
+            </div>
+          </div>
+          </div>
+          
+        <div style="display:flex;gap:14px;margin-top:14px;padding-left:0">
+          <div style="width:206px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative">
+            <div style="position:absolute;top:5px;left:0;right:0;height:2px;background:#009966"></div>
+            <div style="width:11px;height:11px;border-radius:999px;background:#009966;position:relative;z-index:1;box-shadow:0 0 0 3px #fff"></div>
+            <span style="font-size:10px;color:#99A1AF">01</span>
+          </div><div style="width:206px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative">
+            <div style="position:absolute;top:5px;left:0;right:0;height:2px;background:#009966"></div>
+            <div style="width:11px;height:11px;border-radius:999px;background:#009966;position:relative;z-index:1;box-shadow:0 0 0 3px #fff"></div>
+            <span style="font-size:10px;color:#99A1AF">02</span>
+          </div><div style="width:206px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative">
+            <div style="position:absolute;top:5px;left:0;right:0;height:2px;background:#009966"></div>
+            <div style="width:11px;height:11px;border-radius:999px;background:#009966;position:relative;z-index:1;box-shadow:0 0 0 3px #fff"></div>
+            <span style="font-size:10px;color:#99A1AF">03</span>
+          </div><div style="width:206px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative">
+            <div style="position:absolute;top:5px;left:0;right:0;height:2px;background:#009966"></div>
+            <div style="width:11px;height:11px;border-radius:999px;background:#009966;position:relative;z-index:1;box-shadow:0 0 0 3px #fff"></div>
+            <span style="font-size:10px;color:#99A1AF">04</span>
+          </div><div style="width:206px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative">
+            <div style="position:absolute;top:5px;left:0;right:0;height:2px;background:#009966"></div>
+            <div style="width:11px;height:11px;border-radius:999px;background:#009966;position:relative;z-index:1;box-shadow:0 0 0 3px #fff"></div>
+            <span style="font-size:10px;color:#99A1AF">05</span>
+          </div><div style="width:206px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative">
+            <div style="position:absolute;top:5px;left:0;right:0;height:2px;background:#009966"></div>
+            <div style="width:11px;height:11px;border-radius:999px;background:#009966;position:relative;z-index:1;box-shadow:0 0 0 3px #fff"></div>
+            <span style="font-size:10px;color:#99A1AF">06</span>
+          </div><div style="width:206px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative">
+            <div style="position:absolute;top:5px;left:0;right:0;height:2px;background:#009966"></div>
+            <div style="width:11px;height:11px;border-radius:999px;background:#009966;position:relative;z-index:1;box-shadow:0 0 0 3px #fff"></div>
+            <span style="font-size:10px;color:#99A1AF">07</span>
+          </div><div style="width:206px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative">
+            <div style="position:absolute;top:5px;left:0;right:0;height:2px;background:#009966"></div>
+            <div style="width:11px;height:11px;border-radius:999px;background:#009966;position:relative;z-index:1;box-shadow:0 0 0 3px #fff"></div>
+            <span style="font-size:10px;color:#99A1AF">08</span>
+          </div>
+        </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="roadmap-inter" style="margin-top:20px;border-radius:14px;background:#1E4A2D;padding:22px 26px;display:flex;gap:16px;align-items:flex-start">
+      <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="#fff" stroke-width="1.6"></rect><path d="M8 12l3 3 5-6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6)">Critério do MVP</div>
+        <p style="color:#fff;font-size:15.5px;line-height:1.55;margin:6px 0 0;max-width:70ch">O cliente consegue entrar, ver os pedidos dele e abrir uma solicitação sem esbarrar em linguagem interna. O objetivo do primeiro marco é ele usar o sistema.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:24px">
+      <p style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px;color:color-mix(in srgb, var(--color-text) 50%, transparent)">O que ainda está em aberto</p>
+      <p style="font-size:15.5px;line-height:1.65;max-width:70ch;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Se o e-mail continua sendo aceito como canal e quem monitora a caixa na transição; se haverá duplo fator de autenticação; onde ficam armazenados anexos de até 30 MB; como o pedido de priorização manual do gerente é formalizado; e quem é o dono do produto daqui pra frente.</p>
+    </div>
+  </section>
+
+  <section data-reveal="" id="fluxos" style="padding:0 0 48px">
+    <span style="display:block;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 55%, transparent);margin-bottom:14px">Fluxos</span>
+    <h2 style="font-size:clamp(28px,3.6vw,42px);line-height:1.1;letter-spacing:-0.015em;font-weight:600;margin:0 0 16px">Do fluxo atual ao fluxo futuro</h2>
+    <p style="font-size:17.5px;line-height:1.65;max-width:68ch;margin:0 0 32px;color:color-mix(in srgb, var(--color-text) 82%, transparent)">O fluxo de hoje tem várias entradas e nenhum ponto de encontro. O fluxo futuro mantém as entradas, porque tirar canal do ar não resolve, e junta tudo num chamado só.</p>
+
+
+    <span style="display:block;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 60%, transparent);margin-bottom:14px">Fluxo atual</span>
+
+    <div class="roadmap-inter" style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:18px;padding:22px;overflow-x:auto;box-shadow:0px 1px 3px rgba(0,0,0,0.06)">
+      <div style="display:flex;gap:16px;align-items:flex-start;min-width:max-content">
+      <div style="width:178px;flex-shrink:0">
+        
+        <div style="text-align:center;margin-bottom:10px">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.12em;color:#99A1AF">FLUXO 01</div>
+          <div style="font-size:11.5px;font-weight:600;color:#1e2939;margin-top:2px">Canais de entrada</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#45556C;flex-shrink:0"></span>E-mail</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#45556C;flex-shrink:0"></span>Telefone</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#45556C;flex-shrink:0"></span>WhatsApp</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#45556C;flex-shrink:0"></span>Outros canais</div></div>
+      </div>
+      <div aria-hidden="true" style="width:22px;flex-shrink:0;display:flex;align-items:flex-start;justify-content:center;padding-top:52px;color:#99A1AF;font-size:16px;line-height:1">&#8594;</div>
+      <div style="width:178px;flex-shrink:0">
+        
+        <div style="text-align:center;margin-bottom:10px">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.12em;color:#99A1AF">FLUXO 02</div>
+          <div style="font-size:11.5px;font-weight:600;color:#1e2939;margin-top:2px">Recebimento</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#DC2626;flex-shrink:0"></span>Quem recebeu é quem atende</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#DC2626;flex-shrink:0"></span>Sem protocolo</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#DC2626;flex-shrink:0"></span>Sem fila comum</div></div>
+      </div>
+      <div aria-hidden="true" style="width:22px;flex-shrink:0;display:flex;align-items:flex-start;justify-content:center;padding-top:52px;color:#99A1AF;font-size:16px;line-height:1">&#8594;</div>
+      <div style="width:178px;flex-shrink:0">
+        
+        <div style="text-align:center;margin-bottom:10px">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.12em;color:#99A1AF">FLUXO 03</div>
+          <div style="font-size:11.5px;font-weight:600;color:#1e2939;margin-top:2px">Triagem manual</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#DC2626;flex-shrink:0"></span>Decisão na cabeça da pessoa</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#DC2626;flex-shrink:0"></span>Regras não documentadas</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#DC2626;flex-shrink:0"></span>Encaminhamento por e-mail</div></div>
+      </div>
+      <div aria-hidden="true" style="width:22px;flex-shrink:0;display:flex;align-items:flex-start;justify-content:center;padding-top:52px;color:#99A1AF;font-size:16px;line-height:1">&#8594;</div>
+      <div style="width:178px;flex-shrink:0">
+        
+        <div style="text-align:center;margin-bottom:10px">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.12em;color:#99A1AF">FLUXO 04</div>
+          <div style="font-size:11.5px;font-weight:600;color:#1e2939;margin-top:2px">Atendimento</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#DC2626;flex-shrink:0"></span>Controle próprio em planilha</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#DC2626;flex-shrink:0"></span>Histórico espalhado</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#DC2626;flex-shrink:0"></span>Prazo por conduta</div></div>
+      </div>
+      <div aria-hidden="true" style="width:22px;flex-shrink:0;display:flex;align-items:flex-start;justify-content:center;padding-top:52px;color:#99A1AF;font-size:16px;line-height:1">&#8594;</div>
+      <div style="width:178px;flex-shrink:0">
+        
+        <div style="text-align:center;margin-bottom:10px">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.12em;color:#99A1AF">FLUXO 05</div>
+          <div style="font-size:11.5px;font-weight:600;color:#1e2939;margin-top:2px">Retorno</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#DC2626;flex-shrink:0"></span>Responde pelo canal de origem</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#DC2626;flex-shrink:0"></span>Cliente sem acompanhamento</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#DC2626;flex-shrink:0"></span>Sem medição</div></div>
+      </div>
+      </div>
+    </div>
+
+    <div class="roadmap-inter" style="margin-top:14px;display:flex;gap:20px;flex-wrap:wrap;align-items:center">
+      <span style="font-size:9px;font-weight:700;letter-spacing:0.12em;color:#99A1AF">LEGENDA</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:11px;color:#4a5565"><span style="width:8px;height:8px;border-radius:999px;background:#45556C"></span>Cinza = canal de entrada</span><span style="display:flex;align-items:center;gap:6px;font-size:11px;color:#4a5565"><span style="width:8px;height:8px;border-radius:999px;background:#DC2626"></span>Vermelho = gargalo</span>
+    </div>
+
+    <span style="display:block;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 60%, transparent);margin:32px 0 14px">Fluxo futuro</span>
+
+    <div class="roadmap-inter" style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:18px;padding:22px;overflow-x:auto;box-shadow:0px 1px 3px rgba(0,0,0,0.06)">
+      <div style="display:flex;gap:16px;align-items:flex-start;min-width:max-content">
+      <div style="width:178px;flex-shrink:0">
+        
+        <div style="text-align:center;margin-bottom:10px">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.12em;color:#99A1AF">FLUXO 01</div>
+          <div style="font-size:11.5px;font-weight:600;color:#1e2939;margin-top:2px">Canais de entrada</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#45556C;flex-shrink:0"></span>E-mail</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#45556C;flex-shrink:0"></span>Telefone</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#45556C;flex-shrink:0"></span>WhatsApp</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#45556C;flex-shrink:0"></span>Outros canais</div></div>
+      </div>
+      <div aria-hidden="true" style="width:22px;flex-shrink:0;display:flex;align-items:flex-start;justify-content:center;padding-top:52px;color:#1E4A2D;font-size:16px;line-height:1">&#8594;</div>
+      <div style="width:178px;flex-shrink:0">
+        
+        <div style="text-align:center;margin-bottom:10px">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.12em;color:#99A1AF">FLUXO 02</div>
+          <div style="font-size:11.5px;font-weight:600;color:#1e2939;margin-top:2px">Plataforma</div>
+        </div>
+        <div style="background:#1E4A2D;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px">
+          <div>
+            <div style="font-size:12.5px;font-weight:700;color:#fff;line-height:1.3">Chamado único</div>
+            <div style="font-size:10px;color:#A8C5B0;margin-top:2px">Origem registrada</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.14);border-radius:9px;padding:8px 10px;font-size:11px;font-weight:500;color:#fff">Protocolo</div><div style="background:rgba(255,255,255,0.14);border-radius:9px;padding:8px 10px;font-size:11px;font-weight:500;color:#fff">Categoria por tipo</div><div style="background:rgba(255,255,255,0.14);border-radius:9px;padding:8px 10px;font-size:11px;font-weight:500;color:#fff">Anexo</div>
+        </div>
+      </div>
+      <div aria-hidden="true" style="width:22px;flex-shrink:0;display:flex;align-items:flex-start;justify-content:center;padding-top:52px;color:#1E4A2D;font-size:16px;line-height:1">&#8594;</div>
+      <div style="width:178px;flex-shrink:0">
+        
+        <div style="text-align:center;margin-bottom:10px">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.12em;color:#99A1AF">FLUXO 03</div>
+          <div style="font-size:11.5px;font-weight:600;color:#1e2939;margin-top:2px">Triagem</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#D97706;flex-shrink:0"></span>Prioridade na triagem</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#D97706;flex-shrink:0"></span>Regras por alçada</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#D97706;flex-shrink:0"></span>Departamento responsável</div></div>
+      </div>
+      <div aria-hidden="true" style="width:22px;flex-shrink:0;display:flex;align-items:flex-start;justify-content:center;padding-top:52px;color:#1E4A2D;font-size:16px;line-height:1">&#8594;</div>
+      <div style="width:178px;flex-shrink:0">
+        
+        <div style="text-align:center;margin-bottom:10px">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.12em;color:#99A1AF">FLUXO 04</div>
+          <div style="font-size:11.5px;font-weight:600;color:#1e2939;margin-top:2px">Fila priorizada</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#D97706;flex-shrink:0"></span>Prazo por departamento</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#D97706;flex-shrink:0"></span>SLA visível</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#D97706;flex-shrink:0"></span>Escalonamento</div></div>
+      </div>
+      <div aria-hidden="true" style="width:22px;flex-shrink:0;display:flex;align-items:flex-start;justify-content:center;padding-top:52px;color:#1E4A2D;font-size:16px;line-height:1">&#8594;</div>
+      <div style="width:178px;flex-shrink:0">
+        
+        <div style="text-align:center;margin-bottom:10px">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.12em;color:#99A1AF">FLUXO 05</div>
+          <div style="font-size:11.5px;font-weight:600;color:#1e2939;margin-top:2px">Acompanhamento</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#009966;flex-shrink:0"></span>Status para as duas pontas</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#009966;flex-shrink:0"></span>Aviso de resposta</div><div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:9px 11px;font-size:11.5px;color:#364153"><span style="width:7px;height:7px;border-radius:999px;background:#009966;flex-shrink:0"></span>Reabertura</div></div>
+      </div>
+      <div aria-hidden="true" style="width:22px;flex-shrink:0;display:flex;align-items:flex-start;justify-content:center;padding-top:52px;color:#1E4A2D;font-size:16px;line-height:1">&#8594;</div>
+      <div style="width:178px;flex-shrink:0">
+        
+        <div style="text-align:center;margin-bottom:10px">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.12em;color:#99A1AF">FLUXO 06</div>
+          <div style="font-size:11.5px;font-weight:600;color:#1e2939;margin-top:2px">Encerramento</div>
+        </div>
+        <div style="background:#ECFDF5;border:1px solid #C6EBD6;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px">
+          <div>
+            <div style="font-size:12.5px;font-weight:700;color:#1E4A2D;line-height:1.3">Chamado resolvido</div>
+            <div style="font-size:10px;color:#0E7A46;margin-top:2px">Encerramento verificado</div>
+          </div>
+          <div style="background:#fff;border:1px solid #C6EBD6;border-radius:9px;padding:8px 10px;font-size:11px;font-weight:500;color:#1E4A2D">Histórico completo</div><div style="background:#fff;border:1px solid #C6EBD6;border-radius:9px;padding:8px 10px;font-size:11px;font-weight:500;color:#1E4A2D">Avaliação do cliente</div><div style="background:#fff;border:1px solid #C6EBD6;border-radius:9px;padding:8px 10px;font-size:11px;font-weight:500;color:#1E4A2D">Medição por canal</div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="roadmap-inter" style="margin-top:14px;display:flex;gap:20px;flex-wrap:wrap;align-items:center">
+      <span style="font-size:9px;font-weight:700;letter-spacing:0.12em;color:#99A1AF">LEGENDA</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:11px;color:#4a5565"><span style="width:8px;height:8px;border-radius:999px;background:#1E4A2D"></span>Verde escuro = plataforma</span><span style="display:flex;align-items:center;gap:6px;font-size:11px;color:#4a5565"><span style="width:8px;height:8px;border-radius:999px;background:#D97706"></span>Âmbar = triagem e prazo</span><span style="display:flex;align-items:center;gap:6px;font-size:11px;color:#4a5565"><span style="width:8px;height:8px;border-radius:999px;background:#009966"></span>Verde = concluído</span><span style="display:flex;align-items:center;gap:6px;font-size:11px;color:#4a5565"><span style="width:8px;height:8px;border-radius:999px;background:#45556C"></span>Cinza = canal de entrada</span>
+    </div>
+        <p style="font-size:13px;margin-top:18px;color:color-mix(in srgb, var(--color-text) 60%, transparent)">Recriação dos fluxos do board do projeto. Ajusto as etapas conforme o diagrama original.</p>
+  </section>
+
+  <section data-reveal="" id="solucao" style="padding:0 0 48px">
+    <span style="display:block;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 55%, transparent);margin-bottom:14px">Solução</span>
+    <h2 style="font-size:clamp(28px,3.6vw,42px);line-height:1.1;letter-spacing:-0.015em;font-weight:600;margin:0 0 16px">Uma porta de entrada, um histórico</h2>
+    <p style="font-size:17.5px;line-height:1.65;max-width:68ch;color:color-mix(in srgb, var(--color-text) 82%, transparent)">A proposta reúne os canais em um único fluxo de chamado, com arquitetura, navegação, estados e interações desenhados a partir do que as conversas e os fluxos mostraram. Telas e protótipo entram aqui.</p>
+  </section>
+
+  <section data-reveal="" id="sistema" style="padding:0 0 48px">
+    <span style="display:block;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 55%, transparent);margin-bottom:14px">Design System</span>
+    <h2 style="font-size:clamp(28px,3.6vw,42px);line-height:1.1;letter-spacing:-0.015em;font-weight:600;margin:0 0 16px">Por que ele foi necessário</h2>
+    <p style="font-size:17.5px;line-height:1.65;max-width:68ch;color:color-mix(in srgb, var(--color-text) 82%, transparent)">Fundamentos, tokens, cores, tipografia, espaçamento, componentes, estados e variantes, apresentados pelo papel que cumprem: manter consistência entre telas e permitir que a solução crescesse sem redesenhar tudo a cada etapa.</p>
+  </section>
+
+  <section data-reveal="" id="resultado" style="padding:0 0 64px">
+    <span style="display:block;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 55%, transparent);margin-bottom:14px">Resultado</span>
+    <h2 style="font-size:clamp(28px,3.6vw,42px);line-height:1.1;letter-spacing:-0.015em;font-weight:600;margin:0 0 16px">Do problema à interface</h2>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:13px;margin-bottom:20px">
+      <span class="tag tag-neutral" style="white-space:nowrap">Problema</span>
+      <span>→</span>
+      <span class="tag tag-neutral" style="white-space:nowrap">Pesquisa</span>
+      <span>→</span>
+      <span class="tag tag-neutral" style="white-space:nowrap">Insights</span>
+      <span>→</span>
+      <span class="tag tag-neutral" style="white-space:nowrap">Estruturação</span>
+      <span>→</span>
+      <span class="tag tag-neutral" style="white-space:nowrap">Fluxos</span>
+      <span>→</span>
+      <span class="tag tag-accent-2" style="white-space:nowrap">Solução</span>
+      <span>→</span>
+      <span class="tag tag-accent-2" style="white-space:nowrap">Interface</span>
+    </div>
+    <p style="font-size:17.5px;line-height:1.65;max-width:68ch;color:color-mix(in srgb, var(--color-text) 82%, transparent)">O fechamento será qualitativo: decisões concretas tomadas a partir da pesquisa e o efeito delas na experiência de quem pede e de quem atende. Sem métricas inventadas.</p>
+  </section>
+
+  <footer style="padding:32px 0 64px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:14px;color:color-mix(in srgb, var(--color-text) 65%, transparent)">
+    <a href="Home.dc.html#projetos" style="color:var(--color-accent-2-700);text-decoration:none">← Todos os projetos</a>
+    <a href="CaseP7S.dc.html" style="color:var(--color-accent-2-700);text-decoration:none">Case anterior · Comparador P7S</a>
+  </footer>
+
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const sk = document.getElementById('skeleton');
+    if (sk) {
+      const start = Date.now();
+      let done = false;
+      const hide = () => {
+        if (done) return; done = true;
+        setTimeout(() => {
+          sk.style.opacity = '0';
+          sk.style.pointerEvents = 'none';
+          setTimeout(() => { sk.hidden = true; }, 500);
+        }, Math.max(0, 500 - (Date.now() - start)));
+      };
+      const ready = [document.fonts ? document.fonts.ready : Promise.resolve()];
+      if (document.readyState !== 'complete') ready.push(new Promise(r => window.addEventListener('load', r, { once: true })));
+      Promise.all(ready).then(hide);
+      setTimeout(hide, 4000);
+    }
+    const nodes = Array.from(document.querySelectorAll('[data-reveal]'));
+    if (!nodes.length || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    nodes.forEach(n => {
+      n.style.opacity = '0';
+      n.style.transform = 'translateY(16px)';
+      n.style.transition = 'opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1)';
+    });
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'none';
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
+    nodes.forEach(n => io.observe(n));
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chamados Omnichannel · Wellington Mendes</title>
+<link rel="stylesheet" href="_ds/broadsheet-98e66aba-19cf-4391-97dc-cc67491d02cf/styles.css">
+<script src="_ds/broadsheet-98e66aba-19cf-4391-97dc-cc67491d02cf/_ds_bundle.js"></script>
+</helmet>
+
+<div data-screen-label="Case 02 · Chamados Omnichannel" style="background:var(--color-bg);color:var(--color-text)">
+
+<nav class="nav" style="position:sticky;top:0;background:var(--color-bg);z-index:10;padding-inline:max(20px, calc((100% - 1200px) / 2 + 20px))">
+  <a href="Home.dc.html" class="nav-brand" style="text-decoration:none;color:inherit">Wellington Mendes</a>
+  <a href="Home.dc.html">Início</a>
+  <a href="Home.dc.html#projetos">Projetos</a>
+  <a href="Home.dc.html#sobre">Sobre</a>
+  <a href="Home.dc.html#contato">Contato</a>
+  <a href="mailto:Wellington_Mendes7@outlook.com" class="btn btn-primary" style="white-space:nowrap">Vamos conversar</a>
+</nav>
+
+<div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+
+  <header style="padding:56px 0 32px">
+    <a href="Home.dc.html#projetos" style="font-size:13px;color:color-mix(in srgb, var(--color-text) 70%, transparent);text-decoration:none">&larr; Todos os projetos</a>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 12px">
+      <span class="tag tag-outline" style="white-space:nowrap">UX Research</span>
+      <span class="tag tag-outline" style="white-space:nowrap">Service Design</span>
+      <span class="tag tag-outline" style="white-space:nowrap">UX/UI</span>
+      <span class="tag tag-outline" style="white-space:nowrap">Design System</span>
+    </div>
+    <h1 style="font-size:clamp(36px,5vw,58px);line-height:1.05;letter-spacing:-0.02em;margin:0">Chamados Omnichannel</h1>
+    <p style="font-size:18px;line-height:1.5;max-width:56ch;margin:20px 0 0;color:color-mix(in srgb, var(--color-text) 82%, transparent)">Entendendo um serviço fragmentado para construir uma experiência centralizada.</p>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:28px;font-size:13px;color:color-mix(in srgb, var(--color-text) 65%, transparent)">
+      <span><strong style="color:var(--color-text)">Papel</strong> &middot; UX Research, UX/UI e Design System</span>
+      <span><strong style="color:var(--color-text)">Contexto</strong> &middot; Grupo Sarfaty, atendimento interno</span>
+      <span><strong style="color:var(--color-text)">Status</strong> &middot; discovery em documentação</span>
+    </div>
+    <p style="margin-top:24px"><span class="tag tag-accent-2">Case em construção</span></p>
+  </header>
+
+  <nav aria-label="Seções do case" style="display:flex;gap:18px;flex-wrap:wrap;padding:20px 0 40px;font-size:13px">
+    <a href="#contexto" style="color:var(--color-accent-2-700);text-decoration:none">Contexto</a>
+    <a href="#problema" style="color:var(--color-accent-2-700);text-decoration:none">Problema</a>
+    <a href="#usuarios" style="color:var(--color-accent-2-700);text-decoration:none">Papo com usuários</a>
+    <a href="#csd" style="color:var(--color-accent-2-700);text-decoration:none">Matriz CSD</a>
+    <a href="#prototipo" style="color:var(--color-accent-2-700);text-decoration:none">Protótipo</a>
+    <a href="#fluxos" style="color:var(--color-accent-2-700);text-decoration:none">Fluxos</a>
+    <a href="#solucao" style="color:var(--color-accent-2-700);text-decoration:none">Solução</a>
+    <a href="#sistema" style="color:var(--color-accent-2-700);text-decoration:none">Design System</a>
+    <a href="#resultado" style="color:var(--color-accent-2-700);text-decoration:none">Resultado</a>
+  </nav>
+
+  <section id="contexto" style="padding:20px 0 48px">
+    <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-2-700);margin-bottom:10px">Contexto</span>
+    <h2 style="font-size:32px;margin:0 0 16px">Um atendimento que entra por todo lado</h2>
+    <p style="font-size:16.5px;line-height:1.65;max-width:68ch;color:color-mix(in srgb, var(--color-text) 82%, transparent)">As solicitações de suporte chegam por canais diferentes: e-mail, telefone, WhatsApp e outros caminhos que o time foi acumulando. Cada canal tem seu próprio jeito de registrar, acompanhar e cobrar retorno, o que significa que a experiência de pedir ajuda muda conforme a porta de entrada.</p>
+  </section>
+
+  <section id="problema" style="padding:0 0 48px">
+    <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-2-700);margin-bottom:10px">Problema</span>
+    <h2 style="font-size:32px;margin:0 0 24px">O custo da descentralização</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+      <div class="card elev-sm"><h3 class="card-title">Sem histórico único</h3><p class="card-body">A mesma solicitação pode existir em três lugares e em nenhum por completo.</p></div>
+      <div class="card elev-sm"><h3 class="card-title">Acompanhamento difícil</h3><p class="card-body">Quem pediu não sabe em que pé está, e quem atende também não.</p></div>
+      <div class="card elev-sm"><h3 class="card-title">SLA sem base</h3><p class="card-body">Sem registro consistente, não existe prazo confiável para medir.</p></div>
+      <div class="card elev-sm"><h3 class="card-title">Mensuração frágil</h3><p class="card-body">Volume, reincidência e gargalos ficam invisíveis para o time.</p></div>
+    </div>
+  </section>
+
+  <section id="usuarios" style="padding:0 0 48px">
+    <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-2-700);margin-bottom:10px">Papo com usuários</span>
+    <h2 style="font-size:32px;margin:0 0 16px">Pergunta, evidência, interpretação, decisão</h2>
+    <p style="font-size:16.5px;line-height:1.65;max-width:68ch;margin:0 0 24px;color:color-mix(in srgb, var(--color-text) 82%, transparent)">Essa é a etapa mais importante do case: mostrar o que as conversas com as pessoas do fluxo realmente mudaram no projeto, e não apenas dizer que houve entrevistas.</p>
+    <div style="border:1px dashed var(--color-divider);border-radius:var(--radius-md);padding:24px;max-width:68ch">
+      <span class="tag tag-neutral" style="margin-bottom:12px">A escrever com o material real</span>
+      <p style="font-size:15px;line-height:1.6;margin:0;color:color-mix(in srgb, var(--color-text) 75%, transparent)">Entra aqui: o que queríamos entender, as perguntas feitas, os relatos, as dores, os comportamentos observados e os padrões que apareceram, cada bloco ligado à decisão que ele gerou.</p>
+    </div>
+  </section>
+
+  <section id="csd" style="padding:0 0 48px">
+    <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-2-700);margin-bottom:10px">Matriz CSD</span>
+    <h2 style="font-size:32px;margin:0 0 16px">Transformando um problema solto em perguntas</h2>
+    <p style="font-size:16.5px;line-height:1.65;max-width:68ch;margin:0 0 28px;color:color-mix(in srgb, var(--color-text) 82%, transparent)">A matriz separou o que já era fato do que era só crença, e virou pauta de investigação para as conversas.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <span style="width:10px;height:10px;border-radius:50%;background:var(--color-neutral-800)"></span>
+          <h3 style="font-size:16px;margin:0">Certezas</h3>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p style="margin:0;background:var(--color-neutral-200);border-radius:var(--radius-md);padding:14px;font-size:14px;line-height:1.5">As solicitações chegam por e-mail, telefone, WhatsApp e outros canais.</p>
+          <p style="margin:0;background:var(--color-neutral-200);border-radius:var(--radius-md);padding:14px;font-size:14px;line-height:1.5">Não existe um histórico único do que foi pedido e do que foi respondido.</p>
+          <p style="margin:0;background:var(--color-neutral-200);border-radius:var(--radius-md);padding:14px;font-size:14px;line-height:1.5">Cada canal registra a informação de um jeito diferente.</p>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <span style="width:10px;height:10px;border-radius:50%;background:var(--color-neutral-500)"></span>
+          <h3 style="font-size:16px;margin:0">Suposições</h3>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p style="margin:0;background:var(--color-neutral-100);border-radius:var(--radius-md);padding:14px;font-size:14px;line-height:1.5">O canal escolhido tem mais a ver com pressa do que com o tipo de pedido.</p>
+          <p style="margin:0;background:var(--color-neutral-100);border-radius:var(--radius-md);padding:14px;font-size:14px;line-height:1.5">Parte do retrabalho vem de pedidos duplicados em canais diferentes.</p>
+          <p style="margin:0;background:var(--color-neutral-100);border-radius:var(--radius-md);padding:14px;font-size:14px;line-height:1.5">Quem atende monta um controle próprio para não perder pedido.</p>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <span style="width:10px;height:10px;border-radius:50%;background:var(--color-accent-2-500)"></span>
+          <h3 style="font-size:16px;margin:0">Dúvidas</h3>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p style="margin:0;background:var(--color-accent-2-100);border-radius:var(--radius-md);padding:14px;font-size:14px;line-height:1.5">Qual canal concentra o maior volume e qual gera mais retrabalho?</p>
+          <p style="margin:0;background:var(--color-accent-2-100);border-radius:var(--radius-md);padding:14px;font-size:14px;line-height:1.5">Em que momento um pedido se perde no caminho?</p>
+          <p style="margin:0;background:var(--color-accent-2-100);border-radius:var(--radius-md);padding:14px;font-size:14px;line-height:1.5">O que as pessoas consideram &ldquo;resolvido&rdquo;?</p>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:13px;margin-top:16px;color:color-mix(in srgb, var(--color-text) 60%, transparent)">Recriação da matriz do board do projeto. Ajusto os itens conforme o conteúdo original.</p>
+  </section>
+
+  <section id="prototipo" style="padding:0 0 48px">
+    <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-2-700);margin-bottom:10px">Protótipo</span>
+    <h2 style="font-size:32px;margin:0 0 16px">A solução para navegar</h2>
+    <p style="font-size:16.5px;line-height:1.65;max-width:68ch;margin:0 0 20px;color:color-mix(in srgb, var(--color-text) 82%, transparent)">O protótipo do chamado centralizado, com a fila de atendimento e o quadro de escalonamento. Clique nos itens da barra lateral para trocar de tela.</p>
+    <div style="border-radius:10px;overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid #D8E3DC">
+      <div style="background:#1E4A2D;padding:9px 14px;display:flex;align-items:center;justify-content:space-between;font-family:system-ui,sans-serif">
+        <span style="font-size:12.5px;font-weight:600;color:#fff;white-space:nowrap">Service Desk · Omnichannel</span>
+        <span style="display:flex;gap:16px;font-size:12px;color:#D0E8D8">&#8722; &#9633; &#10005;</span>
+      </div>
+      <iframe src="prototipo-omnichannel.html" title="Protótipo navegável do Service Desk Omnichannel" style="width:100%;height:700px;border:0;display:block"></iframe>
+    </div>
+    <p style="font-size:12.5px;margin:10px 0 0;color:color-mix(in srgb, var(--color-text) 60%, transparent)">Protótipo navegável reconstruído a partir do código-fonte real do projeto, com dados de exemplo.</p>
+  </section>
+
+  <section id="fluxos" style="padding:0 0 48px">
+    <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-2-700);margin-bottom:10px">Fluxos</span>
+    <h2 style="font-size:32px;margin:0 0 16px">Do fluxo atual ao fluxo futuro</h2>
+    <p style="font-size:16.5px;line-height:1.65;max-width:68ch;margin:0 0 32px;color:color-mix(in srgb, var(--color-text) 82%, transparent)">O fluxo de hoje tem várias entradas e nenhum ponto de encontro. O fluxo futuro mantém as entradas, porque tirar canal do ar não resolve, e junta tudo num chamado só.</p>
+
+    <span style="display:block;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 60%, transparent);margin-bottom:14px">Fluxo atual</span>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:14px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="background:var(--color-surface);border-radius:var(--radius-md);padding:10px 14px;font-size:13.5px">E-mail</span>
+        <span style="background:var(--color-surface);border-radius:var(--radius-md);padding:10px 14px;font-size:13.5px">Telefone</span>
+        <span style="background:var(--color-surface);border-radius:var(--radius-md);padding:10px 14px;font-size:13.5px">WhatsApp</span>
+        <span style="background:var(--color-surface);border-radius:var(--radius-md);padding:10px 14px;font-size:13.5px">Outros canais</span>
+      </div>
+      <span style="font-size:18px;color:color-mix(in srgb, var(--color-text) 45%, transparent)">&rarr;</span>
+      <div>
+        <span style="display:block;background:var(--color-surface);border-radius:var(--radius-md);padding:12px 16px;font-size:13.5px">Triagem manual de quem recebeu</span>
+        <span class="tag tag-accent-2" style="margin-top:8px;white-space:nowrap">Gargalo &middot; depende da pessoa</span>
+      </div>
+      <span style="font-size:18px;color:color-mix(in srgb, var(--color-text) 45%, transparent)">&rarr;</span>
+      <div>
+        <span style="display:block;background:var(--color-surface);border-radius:var(--radius-md);padding:12px 16px;font-size:13.5px">Atendimento em controle próprio</span>
+        <span class="tag tag-accent-2" style="margin-top:8px;white-space:nowrap">Gargalo &middot; sem histórico único</span>
+      </div>
+      <span style="font-size:18px;color:color-mix(in srgb, var(--color-text) 45%, transparent)">&rarr;</span>
+      <div>
+        <span style="display:block;background:var(--color-surface);border-radius:var(--radius-md);padding:12px 16px;font-size:13.5px">Retorno pelo canal de origem</span>
+        <span class="tag tag-accent-2" style="margin-top:8px;white-space:nowrap">Gargalo &middot; SLA sem base</span>
+      </div>
+    </div>
+
+    <span style="display:block;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 60%, transparent);margin:32px 0 14px">Fluxo futuro</span>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="background:var(--color-surface);border-radius:var(--radius-md);padding:10px 14px;font-size:13.5px">E-mail</span>
+        <span style="background:var(--color-surface);border-radius:var(--radius-md);padding:10px 14px;font-size:13.5px">Telefone</span>
+        <span style="background:var(--color-surface);border-radius:var(--radius-md);padding:10px 14px;font-size:13.5px">WhatsApp</span>
+        <span style="background:var(--color-surface);border-radius:var(--radius-md);padding:10px 14px;font-size:13.5px">Outros canais</span>
+      </div>
+      <span style="font-size:18px;color:var(--color-accent-2-700)">&rarr;</span>
+      <span style="background:var(--color-accent-2-100);border-radius:var(--radius-md);padding:12px 16px;font-size:13.5px;color:var(--color-accent-2-800)">Chamado único, com origem registrada</span>
+      <span style="font-size:18px;color:var(--color-accent-2-700)">&rarr;</span>
+      <span style="background:var(--color-accent-2-100);border-radius:var(--radius-md);padding:12px 16px;font-size:13.5px;color:var(--color-accent-2-800)">Fila priorizada com prazo</span>
+      <span style="font-size:18px;color:var(--color-accent-2-700)">&rarr;</span>
+      <span style="background:var(--color-accent-2-100);border-radius:var(--radius-md);padding:12px 16px;font-size:13.5px;color:var(--color-accent-2-800)">Acompanhamento visível para as duas pontas</span>
+      <span style="font-size:18px;color:var(--color-accent-2-700)">&rarr;</span>
+      <span style="background:var(--color-accent-2-100);border-radius:var(--radius-md);padding:12px 16px;font-size:13.5px;color:var(--color-accent-2-800)">Resolução com histórico e medição</span>
+    </div>
+    <p style="font-size:13px;margin-top:18px;color:color-mix(in srgb, var(--color-text) 60%, transparent)">Recriação dos fluxos do board do projeto. Ajusto as etapas conforme o diagrama original.</p>
+  </section>
+
+  <section id="solucao" style="padding:0 0 48px">
+    <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-2-700);margin-bottom:10px">Solução</span>
+    <h2 style="font-size:32px;margin:0 0 16px">Uma porta de entrada, um histórico</h2>
+    <p style="font-size:16.5px;line-height:1.65;max-width:68ch;color:color-mix(in srgb, var(--color-text) 82%, transparent)">A proposta reúne os canais em um único fluxo de chamado, com arquitetura, navegação, estados e interações desenhados a partir do que as conversas e os fluxos mostraram. Telas e protótipo entram aqui.</p>
+  </section>
+
+  <section id="sistema" style="padding:0 0 48px">
+    <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-2-700);margin-bottom:10px">Design System</span>
+    <h2 style="font-size:32px;margin:0 0 16px">Por que ele foi necessário</h2>
+    <p style="font-size:16.5px;line-height:1.65;max-width:68ch;color:color-mix(in srgb, var(--color-text) 82%, transparent)">Fundamentos, tokens, cores, tipografia, espaçamento, componentes, estados e variantes, apresentados pelo papel que cumprem: manter consistência entre telas e permitir que a solução crescesse sem redesenhar tudo a cada etapa.</p>
+  </section>
+
+  <section id="resultado" style="padding:0 0 64px">
+    <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-2-700);margin-bottom:10px">Resultado</span>
+    <h2 style="font-size:32px;margin:0 0 16px">Do problema à interface</h2>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:13px;margin-bottom:20px">
+      <span class="tag tag-neutral" style="white-space:nowrap">Problema</span>
+      <span>&rarr;</span>
+      <span class="tag tag-neutral" style="white-space:nowrap">Pesquisa</span>
+      <span>&rarr;</span>
+      <span class="tag tag-neutral" style="white-space:nowrap">Insights</span>
+      <span>&rarr;</span>
+      <span class="tag tag-neutral" style="white-space:nowrap">Estruturação</span>
+      <span>&rarr;</span>
+      <span class="tag tag-neutral" style="white-space:nowrap">Fluxos</span>
+      <span>&rarr;</span>
+      <span class="tag tag-accent-2" style="white-space:nowrap">Solução</span>
+      <span>&rarr;</span>
+      <span class="tag tag-accent-2" style="white-space:nowrap">Interface</span>
+    </div>
+    <p style="font-size:16.5px;line-height:1.65;max-width:68ch;color:color-mix(in srgb, var(--color-text) 82%, transparent)">O fechamento será qualitativo: decisões concretas tomadas a partir da pesquisa e o efeito delas na experiência de quem pede e de quem atende. Sem métricas inventadas.</p>
+  </section>
+
+  <footer style="padding:32px 0 64px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:14px;color:color-mix(in srgb, var(--color-text) 65%, transparent)">
+    <a href="Home.dc.html#projetos" style="color:var(--color-accent-2-700);text-decoration:none">&larr; Todos os projetos</a>
+    <a href="CaseP7S.dc.html" style="color:var(--color-accent-2-700);text-decoration:none">Case anterior &middot; Comparador P7S</a>
+  </footer>
+
+</div>
+</div>
+
+</x-dc>
+</body>
+</html>

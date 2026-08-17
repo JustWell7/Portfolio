@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparador P7S · protótipo navegável</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sidebar:#FAFBFC; --page-bg:#F4F5F7; --card:#FFFFFF; --border:#E5E7EB;
+    --text:#111827; --text-soft:#6B7280; --blue:#2451D9; --blue-soft:#EAF0FE;
+    --navy:#16274D; --green:#16A34A; --green-soft:#E7F7EC; --orange:#D97706;
+    --orange-soft:#FDF1DD; --red:#DC2626; --red-soft:#FDEDEC; --radius:12px;
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{margin:0;background:var(--card);font-family:'Inter',sans-serif;color:var(--text);}
+  h1,h2{margin:0;}
+  :focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px;}
+
+  .body{display:grid;grid-template-columns:220px 1fr;min-height:100%;}
+  @media (max-width:820px){.body{grid-template-columns:1fr;}}
+  .sidebar{background:var(--sidebar);border-right:1px solid var(--border);padding:22px 14px;}
+  .sidebar .brand{padding:0 10px 20px;}
+  .sidebar .brand h1{font-size:16px;font-weight:800;}
+  .sidebar .brand span{font-size:11.5px;color:var(--text-soft);}
+  .nav-item{display:block;width:100%;text-align:left;padding:10px 12px;border-radius:9px;
+    font-size:13.5px;font-weight:500;color:var(--text-soft);margin-bottom:4px;border:none;
+    background:transparent;cursor:pointer;font-family:inherit;}
+  .nav-item:hover{background:#EFF1F4;}
+  .nav-item.active{background:var(--blue-soft);color:var(--blue);font-weight:700;}
+
+  .main{padding:28px 30px;background:var(--page-bg);}
+  .main h2{font-size:21px;margin:0 0 5px;}
+  .main .desc{color:var(--text-soft);font-size:13.5px;margin:0 0 20px;}
+
+  .action-bar{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;
+    display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:20px;}
+  .path-label{font-size:11.5px;color:var(--text-soft);margin-bottom:3px;}
+  .path-value{font-size:13.5px;font-weight:600;}
+  .action-buttons{display:flex;gap:9px;flex-wrap:wrap;}
+  .btn{border:none;border-radius:9px;padding:10px 16px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;}
+  .btn-primary{background:var(--blue);color:#fff;}
+  .btn-primary:hover{background:#1D43B8;}
+  .btn-primary:disabled{opacity:0.5;cursor:default;}
+  .btn-secondary{background:#F1F3F5;color:var(--text);}
+  .btn-secondary:hover{background:#E7EAEE;}
+  .btn-secondary:disabled{opacity:0.5;cursor:default;}
+
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;}
+  @media (max-width:700px){.stat-grid{grid-template-columns:repeat(2,1fr);}}
+  .stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;}
+  .stat-card .num{font-size:24px;font-weight:800;display:block;}
+  .stat-card .label{font-size:12px;color:var(--text-soft);font-weight:600;}
+  .stat-card.blue .num{color:var(--blue);}
+  .stat-card.green .num{color:var(--green);}
+  .stat-card.orange .num{color:var(--orange);}
+
+  .status{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;text-transform:uppercase;
+    letter-spacing:0.03em;padding:5px 11px;border-radius:999px;}
+  .status.ok{background:var(--green-soft);color:var(--green);}
+  .status.attn{background:var(--red-soft);color:var(--red);}
+  .status.pending{background:var(--orange-soft);color:var(--orange);}
+  .status .dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+
+  .insight{background:var(--navy);border:none;border-radius:var(--radius);padding:16px 20px;
+    display:none;gap:14px;align-items:center;margin-bottom:20px;}
+  .insight.show{display:flex;}
+  .insight .ic-wrap{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.14);
+    display:flex;align-items:center;justify-content:center;flex:none;color:#fff;font-size:13px;font-weight:800;}
+  .insight .eyebrow-mini{font-size:10.5px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;
+    color:#9DB2E8;display:block;margin-bottom:3px;}
+  .insight p{margin:0;font-size:13.5px;color:#fff;}
+
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);
+    border-radius:var(--radius);overflow:hidden;}
+  thead th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-soft);
+    font-weight:700;padding:11px 14px;background:#F7F8F7;border-bottom:1px solid var(--border);}
+  tbody td{padding:12px 14px;font-size:13px;border-bottom:1px solid var(--border);}
+  tbody tr:last-child td{border-bottom:none;}
+  td.num{font-weight:700;}
+  .empty-row td{color:var(--text-soft);text-align:center;padding:30px;font-size:13px;}
+
+  .spinner{width:14px;height:14px;border-radius:50%;border:2px solid rgba(255,255,255,0.5);border-top-color:#fff;
+    display:inline-block;animation:spin 0.7s linear infinite;margin-right:6px;vertical-align:middle;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+</style>
+</head>
+<body>
+<div class="body">
+  <aside class="sidebar">
+    <div class="brand"><h1>Comparador P7S</h1><span>Grupo Sarfaty</span></div>
+    <div id="nav-container"></div>
+  </aside>
+  <div class="main" id="main-container"></div>
+</div>
+
+<script>
+const tabs = {
+  tipos: {
+    label: "Tipos de Documento",
+    title: "Tipos de Documento",
+    desc: "Conta documentos assinados por tipo e por mês, considerando a data da última assinatura.",
+    pathPlaceholder: "Nenhuma pasta selecionada",
+    pathAfterSelect: "Pasta de operações descompactadas",
+    actionLabel: "Classificar",
+    extraButton: "Salvar Excel",
+    stats: [
+      {label:"Documentos", color:"blue", value:"18.420"},
+      {label:"Termo de Cessão", color:"green", value:"312"},
+      {label:"Duplicata", color:"orange", value:"96"},
+      {label:"Outros", color:"", value:"54"}
+    ],
+    insight: null,
+    tableHead: ["Mês","Total","Termo Cessão","Duplicata","Outros","P7S","PDFs","Consistente"],
+    tableRows: [
+      ["Out/2025","2.480","44","12","6","1.209","1.271",'<span class="status ok"><span class="dot"></span>Sim</span>'],
+      ["Nov/2025","2.610","38","9","8","1.290","1.320",'<span class="status ok"><span class="dot"></span>Sim</span>'],
+      ["Dez/2025","2.190","51","14","5","1.070","1.120",'<span class="status attn"><span class="dot"></span>Não</span>']
+    ]
+  },
+  certificadora: {
+    label: "Certificadora",
+    title: "Certificadora",
+    desc: "Descompacta os .zip e organiza cada pasta por mês da assinatura.",
+    pathPlaceholder: "Nenhuma pasta selecionada",
+    pathAfterSelect: "Pasta raiz da certificadora",
+    actionLabel: "Extrair e Organizar",
+    extraButton: null,
+    stats: [
+      {label:"Pastas", color:"blue", value:"1.204"},
+      {label:"PKCS (P7S)", color:"green", value:"1.198"},
+      {label:"PDFs", color:"orange", value:"1.204"},
+      {label:"Meses", color:"", value:"8"}
+    ],
+    insight: null,
+    tableHead: ["Mês (referência)","Pastas","PDFs","PKCS (P7S)"],
+    tableRows: [
+      ["Out/2025","412","1.061","1.058"],
+      ["Nov/2025","438","1.144","1.144"],
+      ["Dez/2025","354","921","918"]
+    ]
+  },
+  verificacao: {
+    label: "Verificação",
+    title: "Verificação",
+    desc: "Compara a quantidade de PDFs e .p7s por pasta e aponta divergências.",
+    pathPlaceholder: "Nenhuma pasta selecionada",
+    pathAfterSelect: "Pasta a verificar",
+    actionLabel: "Verificar",
+    extraButton: null,
+    stats: [
+      {label:"Pastas", color:"blue", value:"642"},
+      {label:"PDFs", color:"green", value:"3.104"},
+      {label:"P7S", color:"orange", value:"3.081"},
+      {label:"Divergentes", color:"", value:"9"}
+    ],
+    insight: null,
+    tableHead: ["Pasta","PDFs","P7S","Status"],
+    tableRows: [
+      ["OP-3060173","483","483",'<span class="status ok"><span class="dot"></span>Ok</span>'],
+      ["OP-44837726","566","560",'<span class="status attn"><span class="dot"></span>Divergente</span>'],
+      ["OP-7534444","679","679",'<span class="status ok"><span class="dot"></span>Ok</span>']
+    ]
+  },
+  organizar: {
+    label: "Organizar",
+    title: "Organizar por Cedente",
+    desc: "Organiza pastas já descompactadas em mês e cedente, sem extrair .zip.",
+    pathPlaceholder: "Nenhuma pasta selecionada",
+    pathAfterSelect: "Pasta com as operações já descompactadas",
+    actionLabel: "Organizar",
+    extraButton: null,
+    stats: [
+      {label:"Pastas movidas", color:"blue", value:"918"},
+      {label:"Meses", color:"green", value:"8"},
+      {label:"Cedentes", color:"orange", value:"146"},
+      {label:"Sem cedente", color:"", value:"12"}
+    ],
+    insight: null,
+    tableHead: ["Mês","Cedente","Pastas"],
+    tableRows: [
+      ["Out/2025","Cedente 014","14"],
+      ["Nov/2025","Cedente 032","9"],
+      ["Dez/2025","Cedente 067","6"]
+    ]
+  },
+  conciliacao: {
+    label: "Conciliação",
+    title: "Conciliação de entregas",
+    desc: "Cruza documentos por processo e aponta operações que faltam, agrupadas por fundo.",
+    pathPlaceholder: "Nenhuma pasta selecionada",
+    pathAfterSelect: "Relatórios de entrega · Set/2025 a Abr/2026",
+    actionLabel: "Analisar",
+    extraButton: "Exportar Detalhe",
+    extraButton2: "Exportar CSV",
+    stats: [
+      {label:"Processos analisados", color:"blue", value:"22.153"},
+      {label:"Encontrados na pasta", color:"green", value:"20.373"},
+      {label:"Faltando", color:"orange", value:"1.780"},
+      {label:"Fundos conferidos", color:"", value:"4"}
+    ],
+    insight: '<strong>2 operações identificadas para cobrança.</strong> Cedentes específicos nos Fundos A e B têm entregas inteiras faltando, já comunicadas ao fornecedor responsável.',
+    tableHead: ["Fundo","Total","Na pasta","Faltando","Status"],
+    tableRows: [
+      ["Fundo A","14.623","13.572","1.051",'<span class="status attn"><span class="dot"></span>Atenção</span>'],
+      ["Fundo B","7.411","6.731","680",'<span class="status attn"><span class="dot"></span>Atenção</span>'],
+      ["Fundo C","56","56","0",'<span class="status ok"><span class="dot"></span>Ok</span>'],
+      ["Fundo D","63","14","49",'<span class="status pending"><span class="dot"></span>Download pendente</span>']
+    ]
+  }
+};
+
+let currentTab = "conciliacao";
+const selected = {};
+const analyzed = {};
+
+function renderNav(){
+  const nav = document.getElementById('nav-container');
+  nav.innerHTML = Object.keys(tabs).map(key =>
+    `<button class="nav-item ${key===currentTab?'active':''}" data-tab="${key}">${tabs[key].label}</button>`
+  ).join('');
+  nav.querySelectorAll('.nav-item').forEach(btn=>{
+    btn.addEventListener('click', ()=>{ currentTab = btn.dataset.tab; renderNav(); renderMain(); });
+  });
+}
+
+function renderMain(){
+  const t = tabs[currentTab];
+  const isSelected = !!selected[currentTab];
+  const isAnalyzed = !!analyzed[currentTab];
+  const pathText = isSelected ? t.pathAfterSelect : t.pathPlaceholder;
+
+  const statsHtml = t.stats.map(s=>
+    `<div class="stat-card ${s.color}"><span class="num">${isAnalyzed ? s.value : "-"}</span><span class="label">${s.label}</span></div>`
+  ).join('');
+
+  const rowsHtml = isAnalyzed
+    ? t.tableRows.map(r => `<tr>${r.map((c,i)=>`<td class="${i>0 && i<r.length-1 ? 'num':''}">${c}</td>`).join('')}</tr>`).join('')
+    : `<tr class="empty-row"><td colspan="${t.tableHead.length}">Selecione uma pasta e clique em "${t.actionLabel}" para ver os resultados.</td></tr>`;
+
+  const extraBtn = t.extraButton ? `<button class="btn btn-secondary" ${isAnalyzed?'':'disabled'}>${t.extraButton}</button>` : '';
+  const extraBtn2 = t.extraButton2 ? `<button class="btn btn-secondary" ${isAnalyzed?'':'disabled'}>${t.extraButton2}</button>` : '';
+
+  document.getElementById('main-container').innerHTML = `
+    <h2>${t.title}</h2>
+    <p class="desc">${t.desc}</p>
+    <div class="action-bar">
+      <div>
+        <div class="path-label">Pasta</div>
+        <div class="path-value">${pathText}</div>
+      </div>
+      <div class="action-buttons">
+        <button class="btn btn-secondary" id="btn-select">Selecionar</button>
+        ${extraBtn}
+        ${extraBtn2}
+        <button class="btn btn-primary" id="btn-action" ${isSelected?'':'disabled'}>${t.actionLabel}</button>
+      </div>
+    </div>
+    <div class="stat-grid">${statsHtml}</div>
+    <div class="insight ${isAnalyzed && t.insight ? 'show':''}">
+      <span class="ic-wrap">i</span>
+      <div>
+        <span class="eyebrow-mini">Achado da análise</span>
+        <p>${t.insight||''}</p>
+      </div>
+    </div>
+    <table>
+      <thead><tr>${t.tableHead.map(h=>`<th>${h}</th>`).join('')}</tr></thead>
+      <tbody>${rowsHtml}</tbody>
+    </table>
+  `;
+
+  document.getElementById('btn-select').addEventListener('click', ()=>{
+    selected[currentTab] = true;
+    renderMain();
+  });
+
+  const actionBtn = document.getElementById('btn-action');
+  if(actionBtn){
+    actionBtn.addEventListener('click', ()=>{
+      if(!selected[currentTab]) return;
+      actionBtn.innerHTML = '<span class="spinner"></span>Processando...';
+      actionBtn.disabled = true;
+      setTimeout(()=>{ analyzed[currentTab] = true; renderMain(); }, 900);
+    });
+  }
+}
+
+renderNav();
+renderMain();
+</script>
+</body>
+</html>
