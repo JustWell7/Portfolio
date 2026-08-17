@@ -14,13 +14,14 @@
 <script src="_ds/broadsheet-98e66aba-19cf-4391-97dc-cc67491d02cf/_ds_bundle.js"></script>
 <style>
 :root{--color-bg:#F6F9FD}
-body{margin:0;font-family:'Quicksand',system-ui,sans-serif}
+body{margin:0;background:#F6F9FD;font-family:'Quicksand',system-ui,sans-serif}
 body,p,li,span,div,a,blockquote,ul,ol,td,th,label,button{font-family:'Quicksand',system-ui,sans-serif!important}
 h1,h2,h3{font-family:'Poppins',system-ui,sans-serif!important}
 a{color:#006786}
-a:hover{color:#B7A6E8}
-.nav-icon{color:color-mix(in srgb, #201e1d 70%, transparent)}
-.nav-icon:hover{color:#F5B87A}
+a:not(.proj-card):not(.nav-icon):hover{background-image:linear-gradient(100deg,#B7A6E8,#F5B87A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#B7A6E8}
+.nav-icon{color:#006786;transition:color 0.25s ease}
+.nav-icon:hover{color:#F5B87A!important}
+.nav-icon svg{display:block}
 .roadmap-inter,.roadmap-inter p,.roadmap-inter span,.roadmap-inter div,.roadmap-inter h2,.roadmap-inter h3,.roadmap-inter h4{font-family:'Inter',system-ui,sans-serif!important}
 @keyframes sk-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 .sk{background:linear-gradient(90deg,#E7EDF5 25%,#F3F7FC 50%,#E7EDF5 75%);background-size:200% 100%;animation:sk-shimmer 1.4s linear infinite;border-radius:6px}
@@ -59,7 +60,7 @@ a:hover{color:#B7A6E8}
   </div>
 </div>
 
-<div data-screen-label="Case 02 · Chamados Omnichannel" style="background:#f3f2f2;color:#201e1d">
+<div data-screen-label="Case 02 · Chamados Omnichannel" style="background:#F6F9FD;color:#201e1d">
 
 <nav style="position:sticky;top:0;z-index:10;background:rgb(253,254,255);display:flex;align-items:center;gap:32px;padding:20px max(24px, calc((100% - 1080px) / 2 + 24px));font-family:'Quicksand',system-ui,sans-serif;opacity:0.84;box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.15)">
   <a href="Home.dc.html" style="font-size:19px;font-weight:700;text-decoration:none;color:#201e1d">Wellington Mendes</a>
@@ -83,7 +84,7 @@ a:hover{color:#B7A6E8}
   <header style="padding:clamp(32px,6vh,64px) 0 clamp(56px,9vh,96px)">
     <a href="Home.dc.html#projetos" style="font-size:16px;text-decoration:none">← Todos os projetos</a>
     <p style="font-size:14px;margin:clamp(28px,5vw,48px) 0 14px;color:color-mix(in srgb, #201e1d 55%, transparent)">02 · Pesquisa e service design</p>
-    <h1 style="font-size:clamp(42px,7vw,84px);line-height:1.0;letter-spacing:-0.025em;font-weight:600;margin:0;text-wrap:balance;font-family:'Poppins',system-ui,sans-serif;color:#1186ac">Chamados Omnichannel</h1>
+    <h1 style="font-size:clamp(42px,7vw,84px);line-height:1.0;letter-spacing:-0.025em;font-weight:600;margin:0;text-wrap:balance;font-family:'Poppins',system-ui,sans-serif;background-image:linear-gradient(100deg, #1E4A2D, #4CAF50);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#1E4A2D">Chamados Omnichannel</h1>
     <p style="font-size:clamp(19px,2.2vw,25px);line-height:1.45;max-width:34ch;margin:clamp(22px,3vw,32px) 0 0;text-wrap:pretty;color:color-mix(in srgb, #201e1d 88%, transparent)">Quatro canais de atendimento sem histórico único, reunidos em um chamado só.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:clamp(20px,3vw,32px);margin-top:clamp(36px,6vw,56px);max-width:840px">
       <div>

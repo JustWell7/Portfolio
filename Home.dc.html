@@ -24,9 +24,10 @@ body{margin:0;background:#f3f2f2;font-family:'Quicksand',system-ui,sans-serif}
 body,p,li,span,div,a,blockquote,ul,ol,td,th,label,button{font-family:'Quicksand',system-ui,sans-serif!important}
 h1,h2,h3{font-family:'Poppins',system-ui,sans-serif!important}
 a{color:#006786}
-a:hover{color:#B7A6E8}
-.nav-icon{color:color-mix(in srgb, #201e1d 70%, transparent)}
-.nav-icon:hover{color:#F5B87A}
+a:not(.proj-card):not(.nav-icon):hover{background-image:linear-gradient(100deg,#B7A6E8,#F5B87A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#B7A6E8}
+.nav-icon{color:#006786;transition:color 0.25s ease}
+.nav-icon:hover{color:#F5B87A!important}
+.nav-icon svg{display:block}
 .proj-card{background:#fff;border-radius:10px;padding:clamp(24px,4vw,40px);transition:transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s cubic-bezier(0.16,1,0.3,1);box-shadow:0px 1px 2px 0px rgba(0,0,0,0.06)}
 .proj-card:hover{transform:translateY(-4px);box-shadow:0px 8px 20px 0px rgba(0,0,0,0.12)}
 @keyframes sk-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
@@ -93,7 +94,7 @@ a:hover{color:#B7A6E8}
 
   <section style="padding: clamp(56px,11vh,120px) 0 clamp(80px,14vh,160px); height: 540px">
     <p style="font-size:17px;margin:0 0 clamp(20px,3vw,32px);color:color-mix(in srgb, #201e1d 62%, transparent)">PRODUCT and UX/UI Designer · São Paulo</p>
-    <h1 style="font-size:clamp(46px,8.5vw,104px);line-height:0.98;letter-spacing:-0.025em;font-weight:600;margin:0;text-wrap:balance;font-family:'Poppins',system-ui,sans-serif;color:#6C5CE7">Oi, eu sou o Well.</h1>
+    <h1 style="font-size:clamp(46px,8.5vw,104px);line-height:0.98;letter-spacing:-0.025em;font-weight:600;margin:0;text-wrap:balance;font-family:'Poppins',system-ui,sans-serif;background-image:linear-gradient(100deg, #6C5CE7, #F5B87A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#6C5CE7">Oi, eu sou o Well.</h1>
     <p style="font-size:clamp(20px,2.4vw,27px);line-height:1.45;max-width:30ch;margin:clamp(24px,4vw,40px) 0 0;text-wrap:pretty;color:color-mix(in srgb, #201e1d 88%, transparent)">Gosto de entender como as coisas funcionam, onde elas travam e como podem funcionar melhor.</p>
     <a href="#projetos" style="display:inline-block;margin-top:clamp(32px,5vw,52px);font-size:18px;text-decoration:none">Ver os projetos ↓</a>
   </section>
@@ -102,7 +103,7 @@ a:hover{color:#B7A6E8}
     <p style="font-size:14px;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 clamp(36px,6vw,56px);color:color-mix(in srgb, #201e1d 55%, transparent)">Sobre</p>
     <div style="display:grid;grid-template-columns:minmax(0,0.72fr) minmax(0,1.28fr);gap:clamp(28px,5vw,64px);align-items:start">
       <div style="aspect-ratio:4/5;overflow:hidden;background:#EFEDE9;display:flex;align-items:center;justify-content:center">
-        <img src="assets/well.png" alt="Retrato de Wellington Mendes" style="width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block">
+        <img src="assets/well.jpg" alt="Retrato de Wellington Mendes" style="width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block">
       </div>
       <div>
         
@@ -172,7 +173,7 @@ a:hover{color:#B7A6E8}
     <a href="CaseP7S.dc.html" class="proj-card" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(28px,5vw,64px);align-items:center;text-decoration:none;color:inherit;margin-bottom:clamp(32px,5vw,48px)">
       <div>
         <p style="font-size:14px;margin:0 0 14px;color:color-mix(in srgb, #201e1d 55%, transparent)">01 · Ferramenta interna de auditoria</p>
-        <h2 style="font-size:clamp(30px,4.2vw,50px);line-height:1.06;letter-spacing:-0.02em;font-weight:600;margin:0;font-family:'Poppins',system-ui,sans-serif;color:#1186ac">Comparador P7S</h2>
+        <h2 style="font-size:clamp(30px,4.2vw,50px);line-height:1.06;letter-spacing:-0.02em;font-weight:600;margin:0;font-family:'Poppins',system-ui,sans-serif;background-image:linear-gradient(100deg, #1186ac, #38a6cf);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#1186ac">Comparador P7S</h2>
         <p style="font-size:18px;line-height:1.55;max-width:34ch;margin:18px 0 0;color:color-mix(in srgb, #201e1d 78%, transparent)">Uma conferência manual de dois dias virou uma auditoria de duas horas — e passou a dizer o que estava faltando.</p>
         <span style="display:inline-block;margin-top:22px;font-size:17px;color:#006786">Ver o case →</span>
       </div>
@@ -202,7 +203,7 @@ a:hover{color:#B7A6E8}
     <a href="CaseOmnichannel.dc.html" class="proj-card" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(28px,5vw,64px);align-items:center;text-decoration:none;color:inherit;margin-bottom:clamp(32px,5vw,48px)">
       <div>
         <p style="font-size:14px;margin:0 0 14px;color:color-mix(in srgb, #201e1d 55%, transparent)">02 · Pesquisa e service design</p>
-        <h2 style="font-size:clamp(30px,4.2vw,50px);line-height:1.06;letter-spacing:-0.02em;font-weight:600;margin:0;font-family:'Poppins',system-ui,sans-serif;color:#1186ac">Chamados Omnichannel</h2>
+        <h2 style="font-size:clamp(30px,4.2vw,50px);line-height:1.06;letter-spacing:-0.02em;font-weight:600;margin:0;font-family:'Poppins',system-ui,sans-serif;background-image:linear-gradient(100deg, #1E4A2D, #4CAF50);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#1E4A2D">Chamados Omnichannel</h2>
         <p style="font-size:18px;line-height:1.55;max-width:34ch;margin:18px 0 0;color:color-mix(in srgb, #201e1d 78%, transparent)">Quatro canais de atendimento sem histórico único, reunidos em um chamado só.</p>
         <span style="display:inline-block;margin-top:22px;font-size:17px;color:#aa0b56">Ver o case →</span>
       </div>
@@ -222,7 +223,7 @@ a:hover{color:#B7A6E8}
     <a href="CasePsiPlanner.dc.html" class="proj-card" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(28px,5vw,64px);align-items:center;text-decoration:none;color:inherit;margin-bottom:clamp(32px,5vw,48px)">
       <div>
         <p style="font-size:14px;margin:0 0 14px;color:color-mix(in srgb, #201e1d 55%, transparent)">03 · Produto próprio · EdTech</p>
-        <h2 style="font-size:clamp(30px,4.2vw,50px);line-height:1.06;letter-spacing:-0.02em;font-weight:600;margin:0;font-family:'Poppins',system-ui,sans-serif;color:#388E3C">PsiPlanner</h2>
+        <h2 style="font-size:clamp(30px,4.2vw,50px);line-height:1.06;letter-spacing:-0.02em;font-weight:600;margin:0;font-family:'Poppins',system-ui,sans-serif;background-image:linear-gradient(100deg, #388E3C, #70CD74);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#388E3C">PsiPlanner</h2>
         <p style="font-size:18px;line-height:1.55;max-width:34ch;margin:18px 0 0;color:color-mix(in srgb, #201e1d 78%, transparent)">Um planner de estudos que organiza a Psicologia por abordagem teórica, não como um caderno genérico.</p>
         <span style="display:inline-block;margin-top:22px;font-size:17px;color:#388E3C">Ver o case →</span>
       </div>
@@ -242,11 +243,12 @@ a:hover{color:#B7A6E8}
   </section>
 
   <section id="contato" data-reveal="" style="padding:0 0 clamp(56px,9vh,96px)">
-    <h2 style="font-size:clamp(36px,6vw,72px);line-height:1.02;letter-spacing:-0.02em;font-weight:600;margin:0 0 clamp(28px,4vw,40px);font-family:'Poppins',system-ui,sans-serif;color:#1186ac">Vamos conversar?</h2>
+    <h2 style="font-size:clamp(36px,6vw,72px);line-height:1.02;letter-spacing:-0.02em;font-weight:600;margin:0 0 clamp(28px,4vw,40px);font-family:'Poppins',system-ui,sans-serif;background-image:linear-gradient(100deg, #6C5CE7, #F5B87A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#6C5CE7">Vamos conversar?</h2>
     <div style="display: flex; flex-direction: column; gap: 12px; font-size: 19px; position: static">
       <a href="mailto:Wellington_Mendes7@outlook.com" style="text-decoration:none">Wellington_Mendes7@outlook.com</a>
       <a href="https://br.linkedin.com/in/wellmendes" target="_blank" rel="noopener" style="text-decoration: none; line-height: 28 px">LinkedIn</a>
-      <a href="https://www.artstation.com/wellmendes" target="_blank" rel="noopener" style="text-decoration:none">ArtStation</a>Telefone: (11) 99165-5508
+      <a href="https://www.artstation.com/wellmendes" target="_blank" rel="noopener" style="text-decoration:none">ArtStation</a>
+      <span style="color:#006786">Telefone: (11) 99165-5508</span>
     </div>
   </section>
 
