@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Wellington Mendes · UX/UI Designer</title>
+<title>Wellington Mendes · Product e UX Designer</title>
 <link rel="stylesheet" href="_ds/broadsheet-98e66aba-19cf-4391-97dc-cc67491d02cf/styles.css">
 <script src="_ds/broadsheet-98e66aba-19cf-4391-97dc-cc67491d02cf/_ds_bundle.js"></script>
 <script src="./image-slot.js"></script>
@@ -18,20 +18,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet">
 <style>
-/* fallback do design system (garante o visual sem depender do _ds/) */
-.tag{display:inline-flex;align-items:center;font-size:11px;letter-spacing:0.02em;padding:3px 10px;border-radius:2px}
-.tag-accent{background:#e9f8ff;color:#004961}
-.tag-accent-2{background:#fff1f4;color:#790e3d}
-.tag-neutral{background:#f8f4f4;color:#444141}
-.tag-outline{border:1px solid #0088b0;color:#0088b0}
-.card{display:flex;flex-direction:column;gap:10px;padding:15px;border-radius:2px;background:#eae9e9}
-.elev-sm{box-shadow:0 1px 2px rgba(45,43,43,0.14)}
-.elev-md{box-shadow:0 3px 10px rgba(45,43,43,0.16)}
-.elev-lg{box-shadow:0 12px 32px rgba(45,43,43,0.22)}
-.table{width:100%;border-collapse:collapse;font-size:14px}
-.table th{text-align:left;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(32,30,29,0.6);padding:10px;border-bottom:1px solid rgba(32,30,29,0.16)}
-.table td{padding:10px;border-bottom:1px solid rgba(32,30,29,0.08)}
-.table tbody tr:hover{background:rgba(32,30,29,0.04)}
 
 html{scroll-behavior:smooth}
 body{margin:0;background:#f3f2f2;font-family:'Quicksand',system-ui,sans-serif}
@@ -43,6 +29,20 @@ a:not(.proj-card):not(.nav-icon):hover{background-image:linear-gradient(100deg,#
 .nav-icon{color:#006786;transition:color 0.25s ease}
 .nav-icon:hover{color:#F5B87A!important}
 .nav-icon svg{display:block}
+.tag{display:inline-flex;align-items:center;font-size:11px;letter-spacing:0.02em;padding:3px 10px;border-radius:2px}
+.tag-accent{background:#e9f8ff;color:#004961}
+.tag-accent-2{background:#fff1f4;color:#790e3d}
+.tag-neutral{background:#f8f4f4;color:#444141}
+.tag-outline{border:1px solid #0088b0;color:#0088b0}
+.card{display:flex;flex-direction:column;gap:10px;padding:15px;border-radius:2px;background:#eae9e9}
+.elev-sm{box-shadow:0 1px 2px rgba(45,43,43,0.14)}
+.elev-md{box-shadow:0 3px 10px rgba(45,43,43,0.16)}
+.elev-lg{box-shadow:0 12px 32px rgba(45,43,43,0.22)}
+.table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px}
+.table th{text-align:left;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(32,30,29,0.6);padding:12px 32px 12px 0;border-bottom:1px solid rgba(32,30,29,0.16);white-space:nowrap}
+.table td{padding:15px 32px 15px 0;border-bottom:1px solid rgba(32,30,29,0.08);white-space:nowrap}
+.table th:last-child,.table td:last-child{padding-right:0}
+
 .proj-card{background:#fff;border-radius:10px;padding:clamp(24px,4vw,40px);transition:transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s cubic-bezier(0.16,1,0.3,1);box-shadow:0px 1px 2px 0px rgba(0,0,0,0.06)}
 .proj-card:hover{transform:translateY(-4px);box-shadow:0px 8px 20px 0px rgba(0,0,0,0.12)}
 @keyframes sk-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
@@ -189,7 +189,12 @@ a:not(.proj-card):not(.nav-icon):hover{background-image:linear-gradient(100deg,#
       <div>
         <p style="font-size:14px;margin:0 0 14px;color:color-mix(in srgb, #201e1d 55%, transparent)">01 · Ferramenta interna de auditoria</p>
         <h2 style="font-size:clamp(30px,4.2vw,50px);line-height:1.06;letter-spacing:-0.02em;font-weight:600;margin:0;font-family:'Poppins',system-ui,sans-serif;background-image:linear-gradient(100deg, #1186ac, #38a6cf);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#1186ac">Comparador P7S</h2>
-        <p style="font-size:18px;line-height:1.55;max-width:34ch;margin:18px 0 0;color:color-mix(in srgb, #201e1d 78%, transparent)">Uma conferência manual de dois dias virou uma auditoria de duas horas — e passou a dizer o que estava faltando.</p>
+        <div style="display:flex;align-items:baseline;gap:14px;margin:20px 0 0;flex-wrap:wrap">
+          <span style="font-size:clamp(19px,2.2vw,26px);font-weight:600;font-family:'Poppins',system-ui,sans-serif;color:color-mix(in srgb, #201e1d 45%, transparent);text-decoration:line-through;text-decoration-thickness:2px">1-2 dias</span>
+          <span style="font-size:18px;color:#1186ac">→</span>
+          <span style="font-size:clamp(23px,2.8vw,32px);font-weight:700;font-family:'Poppins',system-ui,sans-serif;color:#1186ac">até 2 horas</span>
+        </div>
+        <p style="font-size:18px;line-height:1.55;max-width:34ch;margin:14px 0 0;color:color-mix(in srgb, #201e1d 78%, transparent)">Uma conferência manual de dois dias virou uma auditoria de duas horas, e passou a dizer o que estava faltando.</p>
         <span style="display:inline-block;margin-top:22px;font-size:17px;color:#006786">Ver o case →</span>
       </div>
       <div style="aspect-ratio:4/3;background:#f8f4f4;display:flex;flex-direction:column;justify-content:flex-end;gap:20px;padding:clamp(20px,3vw,34px)">
@@ -254,7 +259,7 @@ a:not(.proj-card):not(.nav-icon):hover{background-image:linear-gradient(100deg,#
       </div>
     </a>
 
-    <p style="font-size:17px;margin:0;color:color-mix(in srgb, #201e1d 55%, transparent)">04 · Soluções financeiras — case em escrita.</p>
+    <p style="font-size:17px;margin:0;color:color-mix(in srgb, #201e1d 55%, transparent)">04 · Soluções financeiras · case em escrita.</p>
   </section>
 
   <section id="contato" data-reveal="" style="padding:0 0 clamp(56px,9vh,96px)">
@@ -267,7 +272,7 @@ a:not(.proj-card):not(.nav-icon):hover{background-image:linear-gradient(100deg,#
     </div>
   </section>
 
-  <footer style="padding:0 0 56px;font-size:14px;color:color-mix(in srgb, #201e1d 50%, transparent)">Wellington Mendes · UX/UI Designer</footer>
+  <footer style="padding:0 0 56px;font-size:14px;color:color-mix(in srgb, #201e1d 50%, transparent)">Wellington Mendes · Product e UX Designer</footer>
 
 </div>
 </div>
