@@ -53,6 +53,8 @@ a:not(.proj-card):not(.nav-icon):hover{background-image:linear-gradient(100deg,#
   .table{font-size:13px!important}
   .table th,.table td{padding-right:20px!important}
   blockquote{font-size:20px!important;max-width:none!important}
+  .proto-embed{display:none!important}
+  .proto-cta{display:block!important}
 }
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -276,12 +278,17 @@ a:not(.proj-card):not(.nav-icon):hover{background-image:linear-gradient(100deg,#
     <span style="display:block;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:color-mix(in srgb, #201e1d 55%, transparent);margin-bottom:14px">Protótipo</span>
     <h2 style="font-size:clamp(28px,3.6vw,42px);line-height:1.1;letter-spacing:-0.015em;font-weight:600;margin:0 0 12px">As cinco etapas, no aplicativo real</h2>
     <p style="font-size:17.5px;line-height:1.65;max-width:68ch;margin:0 0 24px;color:color-mix(in srgb, #201e1d 82%, transparent)">O protótipo simula o aplicativo desktop: escolha uma etapa na lateral, clique em “Selecionar” e depois na ação principal para ver o resultado da auditoria daquela etapa.</p>
-    <div style="border-radius:10px;overflow:hidden;box-shadow:0 12px 32px rgba(45,43,43,0.22);border:1px solid #D8DFDA">
+    <div class="proto-embed" style="border-radius:10px;overflow:hidden;box-shadow:0 12px 32px rgba(45,43,43,0.22);border:1px solid #D8DFDA">
       <div style="background:#E4F3EA;border-bottom:1px solid #C9E6D4;padding:9px 14px;display:flex;align-items:center;justify-content:space-between;font-family:system-ui,sans-serif">
         <span style="font-size:12.5px;font-weight:600;color:#3A4A40">Comparador P7S</span>
         <span style="display:flex;gap:16px;font-size:12px;color:#5B655F">− □ ✕</span>
       </div>
       <iframe src="prototipo-comparador-p7s.html" title="Protótipo navegável do Comparador P7S" style="width:100%;height:700px;border:0;display:block"></iframe>
+    </div>
+    <div class="proto-cta" style="display:none;border-radius:10px;border:1px solid #D8DFDA;background:#EEF6F1;padding:22px">
+      <p style="font-family:'Inter',system-ui,sans-serif;font-size:14px;font-weight:700;margin:0 0 6px;color:#201e1d">Protótipo desktop</p>
+      <p style="font-family:'Inter',system-ui,sans-serif;font-size:13px;line-height:1.55;margin:0 0 16px;color:color-mix(in srgb, #201e1d 65%, transparent)">Ele foi desenhado para tela grande — abrir em uma aba separada dá a experiência correta. No celular, gire a tela para melhor leitura.</p>
+      <a href="prototipo-comparador-p7s.html" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:8px;background:#2E6B45;color:#fff;font-family:'Inter',system-ui,sans-serif;font-size:14px;font-weight:600;text-decoration:none">Abrir protótipo ↗</a>
     </div>
     <p style="font-size:12.5px;margin:10px 0 0;color:color-mix(in srgb, #201e1d 60%, transparent)">*Protótipo navegável exemplificado das cinco etapas, com dados de uma análise real. Nomes escondidos para a proteção de dados e confidencialidade</p>
   </section>
