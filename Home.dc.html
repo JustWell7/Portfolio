@@ -51,7 +51,13 @@ a:not(.proj-card):not(.nav-icon):hover{background-image:linear-gradient(100deg,#
 #skeleton[hidden]{display:none}
 @media (prefers-reduced-motion:reduce){.sk{animation:none}}
 
+@keyframes portraitFloat{0%,100%{transform:translateY(0) rotate(-0.4deg)}50%{transform:translateY(-10px) rotate(0.4deg)}}
+.portrait-float{animation:portraitFloat 7s ease-in-out infinite;will-change:transform}
+@media (prefers-reduced-motion:reduce){.portrait-float{animation:none}}
+
 @media (max-width:760px){
+  .hero-grid{grid-template-columns:minmax(0,1fr)!important;gap:28px!important}
+  .portrait-hero{order:-1;max-width:230px;margin:0 0 4px}
   nav{gap:10px!important;row-gap:6px!important;padding:12px 18px!important;flex-wrap:wrap!important}
   nav>a{font-size:16px!important}
   nav>div{gap:14px!important;font-size:14px!important}
@@ -126,11 +132,24 @@ a:not(.proj-card):not(.nav-icon):hover{background-image:linear-gradient(100deg,#
 
 <div id="topo" style="position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 clamp(24px,5vw,48px)">
 
-  <section class="hero" style="padding: clamp(56px,11vh,120px) 0 clamp(80px,14vh,160px); height: 540px">
+  <section class="hero" style="padding: clamp(56px,11vh,120px) 0 clamp(80px,14vh,160px); min-height: 540px">
+    <div class="hero-grid" style="display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(32px,5vw,64px);align-items:center">
+    <div>
     <p style="font-size:17px;margin:0 0 clamp(20px,3vw,32px);color:color-mix(in srgb, #201e1d 62%, transparent)">PRODUCT and UX/UI Designer · São Paulo</p>
     <h1 style="font-size:clamp(46px,8.5vw,104px);line-height:0.98;letter-spacing:-0.025em;font-weight:600;margin:0;text-wrap:balance;font-family:'Poppins',system-ui,sans-serif;background-image:linear-gradient(100deg, #6C5CE7, #F5B87A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#6C5CE7">Oi, eu sou o Well.</h1>
     <p style="font-size:clamp(20px,2.4vw,27px);line-height:1.45;max-width:30ch;margin:clamp(24px,4vw,40px) 0 0;text-wrap:pretty;color:color-mix(in srgb, #201e1d 88%, transparent)">Gosto de entender como as coisas funcionam, onde elas travam e como podem funcionar melhor.</p>
     <a href="#projetos" style="display:inline-block;margin-top:clamp(32px,5vw,52px);font-size:18px;text-decoration:none">Ver os projetos ↓</a>
+    </div>
+    <div class="portrait-hero" style="position:relative;width:100%">
+      <div style="position:relative;aspect-ratio:1/1;width:100%">
+        <div aria-hidden="true" style="position:absolute;left:4%;top:6%;width:92%;height:92%;border-radius:999px;background:#EFEBFB"></div>
+        <div aria-hidden="true" style="position:absolute;right:-6%;top:-8%;width:34%;aspect-ratio:1/1;border-radius:999px;background:#FCEFE1"></div>
+        <div class="portrait-float" style="position:relative;width:100%;height:100%">
+          <image-slot id="mascote-hero" shape="rounded" radius="999px" placeholder="Mascote — PNG com fundo transparente" style="width:100%;aspect-ratio:1/1;display:block"></image-slot>
+        </div>
+      </div>
+    </div>
+    </div>
   </section>
 
   <section id="sobre" data-reveal="" style="padding:0 0 clamp(64px,10vh,120px)">
@@ -174,6 +193,7 @@ a:not(.proj-card):not(.nav-icon):hover{background-image:linear-gradient(100deg,#
       </div>
     </div>
   </section>
+
 
   <section data-reveal="" style="padding:0 0 clamp(64px,10vh,120px)">
     <p style="font-size:14px;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 clamp(28px,4vw,40px);color:color-mix(in srgb, #201e1d 55%, transparent)">Trajetória</p>
@@ -288,6 +308,7 @@ a:not(.proj-card):not(.nav-icon):hover{background-image:linear-gradient(100deg,#
       <a href="https://br.linkedin.com/in/wellmendes" target="_blank" rel="noopener" style="text-decoration: none; line-height: 28 px">LinkedIn</a>
       <a href="https://www.artstation.com/wellmendes" target="_blank" rel="noopener" style="text-decoration:none">ArtStation</a>
       <span style="color:#006786">Telefone: (11) 99165-5508</span>
+    </div>
     </div>
   </section>
 
