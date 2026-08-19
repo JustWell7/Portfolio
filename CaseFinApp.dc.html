@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FinApp · Wellington Mendes</title>
+<style>
+body{margin:0;background:#0d0d12}
+nav a{transition:color .25s ease}
+nav a:hover{background-image:linear-gradient(100deg,#B7A6E8,#F5B87A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+nav a.nav-icon:hover{color:#F5B87A!important;-webkit-text-fill-color:currentColor}
+nav a.nav-brand:hover{background-image:linear-gradient(100deg,#B7A6E8,#F5B87A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@media (max-width:760px){
+  nav{gap:10px 16px!important;row-gap:8px!important;padding:12px 18px!important;flex-wrap:wrap!important}
+  nav>a{flex:0 0 100%!important;font-size:17px!important}
+  nav>div{gap:14px!important;font-size:14px!important;margin-left:0!important}
+  nav>div:last-child{gap:12px!important;margin-left:0!important}
+  .nav-icon{min-width:34px;min-height:34px;align-items:center;justify-content:center}
+}
+@keyframes sk-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.sk{background:linear-gradient(90deg,#1c1c24 25%,#26262f 50%,#1c1c24 75%);background-size:200% 100%;animation:sk-shimmer 1.4s linear infinite;border-radius:6px}
+#skeleton[hidden]{display:none}
+@media (prefers-reduced-motion:reduce){.sk{animation:none}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&amp;display=swap" rel="stylesheet">
+</helmet>
+
+<div id="skeleton" aria-hidden="true" style="position:fixed;inset:0;z-index:9999;background:#0d0d12;padding:24px">
+  <div class="sk" style="width:180px;height:14px"></div>
+  <div class="sk" style="width:min(500px,70%);height:60px;margin-top:20px;border-radius:10px"></div>
+  <div class="sk" style="width:min(600px,80%);height:20px;margin-top:20px"></div>
+</div>
+
+<div style="position:relative;background:#0d0d12">
+  <nav style="position:sticky;top:0;z-index:20;background:rgb(253,254,255);display:flex;align-items:center;gap:32px;padding:20px max(24px, calc((100% - 1080px) / 2 + 24px));font-family:'Quicksand',system-ui,sans-serif;opacity:0.84;box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.15)">
+    <a href="Home.dc.html" class="nav-brand" style="font-size:19px;font-weight:700;text-decoration:none;color:#201e1d">Wellington Mendes</a>
+    <div style="display:flex;gap:26px;margin-left:auto;font-size:15.5px;font-weight:600">
+      <a href="Home.dc.html#sobre" style="text-decoration:none;color:#006786">sobre</a>
+      <a href="Home.dc.html#projetos" style="text-decoration:none;color:#006786">projetos</a>
+      <a href="Home.dc.html#contato" style="text-decoration:none;color:#006786">contato</a>
+    </div>
+    <div style="display:flex;gap:16px;align-items:center;margin-left:8px">
+      <a href="https://br.linkedin.com/in/wellmendes" target="_blank" rel="noopener" class="nav-icon" style="display:flex;color:#006786" aria-label="LinkedIn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><text x="12" y="17.5" text-anchor="middle" font-size="17" font-weight="700" font-family="Arial,sans-serif" fill="currentColor">in</text></svg>
+      </a>
+      <a href="mailto:Wellington_Mendes7@outlook.com" class="nav-icon" style="display:flex;color:#006786" aria-label="E-mail">
+        <svg width="20" height="20" viewBox="0 0 256 256" fill="none"><rect x="32" y="56" width="192" height="144" rx="12" stroke="currentColor" stroke-width="16"></rect><path d="M44 66l84 68 84-68" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </a>
+    </div>
+  </nav>
+  <iframe ref="{{ frameRef }}" src="case-finapp-doc.html" title="FinApp — Documentação de produto e design" onLoad="{{ onFrameLoad }}" style="width:100%;border:0;display:block;min-height:100vh"></iframe>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  frameRef = React.createRef();
+
+  renderVals() {
+    return { frameRef: this.frameRef, onFrameLoad: () => this.resize() };
+  }
+
+  resize() {
+    const el = this.frameRef.current;
+    if (!el) return;
+    try {
+      const doc = el.contentDocument;
+      if (doc && doc.documentElement) {
+        const bar = doc.querySelector('.topbar');
+        if (bar) bar.style.display = 'none';
+        el.style.height = doc.documentElement.scrollHeight + 'px';
+      }
+    } catch (e) {}
+    this.dismissSkeleton();
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', () => this.resize());
+    setTimeout(() => this.resize(), 4000);
+  }
+
+  dismissSkeleton() {
+    const el = document.getElementById('skeleton');
+    if (!el || el.hidden) return;
+    el.style.transition = 'opacity .4s ease';
+    el.style.opacity = '0';
+    setTimeout(() => { el.hidden = true; }, 400);
+  }
+}
+
+</script>
+</body>
+</html>
